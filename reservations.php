@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es">
+
 <head>
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <title>SM Spa | Esencia y Belleza</title>
@@ -15,13 +16,28 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php include_once('includes/header.php'); ?>
 
-    <section id="Booking_table" class="mt-5 mb-5" style="position: relative;">
+    <section id="Countdown_table" class="mt-1">
+
         <div class="container">
+            <div class="countdown">
+                <h5 id="x_minutes_countdown"><i class="fa fa-clock-o"></i></h5>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!--ELECCION DEL SERVICIO---->
+    <section id="Services_table" class="mt-5 mb-5" style="position: relative;">
+        <div class="container">
+
             <!-- ETAPAS RESERVA -->
-            <div class="circles-container text-center mb-4">
+            <div class="circles-container mt-3 text-center mb-4">
                 <div class="circle active"></div>
                 <div class="circle"></div>
                 <div class="circle"></div>
@@ -49,12 +65,125 @@
                     </div>
                 </div>
                 <div class="card-footer text-right">
-                    <button type="button" id="BtnContinuar"class="btn btn-success" disabled><i class="fa fa-arrow-right"></i> Continuar</button>
+                    <button type="button" id="BtnContinuar" class="btn btn-success" disabled><i class="fa fa-arrow-right"></i> Continuar</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!--CALENDARIO DE RESERVAS---->
+    <section id="Calendar_table" class=" hidden mt-5 mb-5" style="position: relative;display: none;">
+        <div class="container">
+            <!-- ETAPAS RESERVA -->
+            <div class="circles-container text-center  mb-4">
+                <div class="circle"></div>
+                <div class="circle active"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+
+            <div class="card bg-light text-dark mt-3">
+                <h2 class="text-center mt-3">Elección Fecha y Hora:</h2>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 border-right">
+                            <h5 id="servicioCalendarTitulo">Ejemplo Servicio</h5>
+                            <p id="servicioCalendarDuracionPrecio">
+                                <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
+                                <i class="fa fa-money"></i> Precio: S/60
+                            </p>
+                        </div>
+                        <div class="col-md-6 border-left">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <button type="button" id="BtnContinuar2" class="btn btn-success"><i class="fa fa-arrow-right"></i> Continuar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--CLIENTE INFORMACION---->
+    <section id="Client_Information_table" class=" hidden mt-5 mb-5" style="position: relative;display: none;">
+        <div class="container">
+            <!-- ETAPAS RESERVA -->
+            <div class="circles-container text-center mb-4">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle active"></div>
+                <div class="circle"></div>
+            </div>
+
+            <div class="card bg-light text-dark mt-3">
+                <h2 class="text-center mt-3">Datos del Cliente:</h2>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 border-right">
+                            <h5 id="servicio_Client_Information_Titulo">Ejemplo Servicio</h5>
+                            <p id="servicio_Client_Information_DuracionPrecio">
+                                <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
+                                <i class="fa fa-money"></i> Precio: S/60
+                            </p>
+                        </div>
+                        <div class="col-md-6 border-left">
+                            <div class="card-body">
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-group">
+                                        <label for="Nombres">Nombres</label>
+                                        <input type="text" class="form-control" id="validationCustom01" placeholder="Nombres" required>
+                                        <div class="valid-feedback">
+                                            ¡Correcto!
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="Apellidos">Apellidos</label>
+                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Apellidos" required>
+                                        <div class="valid-feedback">
+                                            ¡Correcto!
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Celular">Celular</label>
+                                        <input type="tel" class="form-control" id="validationCustom03" placeholder="Celular" pattern="[0-9]{9}" maxlength="9" required>
+                                        <div class="invalid-feedback">
+                                            Debe proporcionar un número de celular válido de 9 dígitos.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="Correo">Correo</label>
+                                        <input type="email" class="form-control" id="validationCustom04" placeholder="Correo" required>
+                                        <div class="invalid-feedback">
+                                            Debe proporcionar un correo electrónico válido.
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <button type="submit" id="BtnAtras3" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Atrás</button>
+                    <button type="submit" id="BtnContinuar3" class="btn btn-success"><i class="fa fa-arrow-right"></i> Continuar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <style>
+        .countdown {
+            background-color: red;
+            color: white;
+            float: right;
+            border-radius: 15%;
+            border: 1px solid red;
+            padding: 3px 15px;
+        }
+
         .circles-container {
             display: flex;
             justify-content: space-around;
