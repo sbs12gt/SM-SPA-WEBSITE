@@ -20,6 +20,17 @@
 
     <?php include_once('includes/header.php'); ?>
 
+    <script>
+        Swal.fire({
+            title: 'Reserva de Servicios en SM SPA',
+            text: 'Tiene un tiempo límite de 5 minutos para reservar.',
+            timer: 1500,
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            icon: 'success',
+        });
+    </script>
+
     <section id="Countdown_table" class="mt-1">
 
         <div class="container">
@@ -179,8 +190,7 @@
             background-color: red;
             color: white;
             float: right;
-            border-radius: 15%;
-            border: 1px solid red;
+            border-radius: 30px;
             padding: 3px 15px;
         }
 

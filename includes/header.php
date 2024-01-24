@@ -10,7 +10,7 @@
             <div class="menu">
                 <div class="panel-nav">
                     <nav class="nav">
-			<a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                         <a class="nav-link" href="about.php">Nosotros</a>
                         <a class="nav-link" href="promotions.php">Promociones</a>
                         <a class="nav-link" href="services.php">Servicios</a>
@@ -18,8 +18,7 @@
                     </nav>
                 </div>
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
-                        aria-expanded="false">
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-navicon"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
