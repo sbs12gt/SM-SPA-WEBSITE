@@ -132,8 +132,8 @@ function obtenerDetallesServicio(servicioId) {
   }, false);
 })();
 
-const Initial_minutes = 1;
-let Time = Initial_minutes * 60-50;
+const Initial_minutes = 5;
+let Time = Initial_minutes * 60;
 
 const Countdown = document.getElementById('x_minutes_countdown');
 
