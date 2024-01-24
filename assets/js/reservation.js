@@ -134,8 +134,8 @@ function obtenerDetallesServicio(servicioId) {
 
 
 // CUENTA REGRESIVA
-const Initial_minutes = 1;
-let Time = (Initial_minutes * 60) - 56; // Restar 56 segundos al tiempo inicial
+const Initial_minutes = 5;
+let Time = Initial_minutes * 60;
 
 const Countdown = document.getElementById('x_minutes_countdown');
 
@@ -144,11 +144,9 @@ function updateCountdown() {
   let Seconds = Math.max(Time, 0) % 60;
   Seconds = Seconds < 10 ? '0' + Seconds : Seconds;
 
-  // Mostrar el contenido del contador en pantalla
   Countdown.innerHTML = `<i class="fa fa-clock-o"></i> ${Minutes}:${Seconds}`;
 
   if (Time >= 0) {
-    // Decrementar el tiempo y programar la próxima actualización después de 1 segundo
     Time--;
     setTimeout(updateCountdown, 1000);
   } else {
@@ -156,17 +154,14 @@ function updateCountdown() {
       title: 'Lo sentimos',
       html: 'El tiempo para reservar ha llegado al límite. Será redirigido a la página principal.',
       icon: 'error',
-      timer: 3000, // Mostrar durante 3 segundos
-      showConfirmButton: false, // Ocultar el botón de confirmación
+      timer: 3000,
+      showConfirmButton: false,
       allowOutsideClick: false
     }).then(() => {
-      // Redirigir a la página principal después de que SweetAlert se cierre
       window.location.href = 'index.php';
     });
   }
 }
-
-// Iniciar la cuenta regresiva
 updateCountdown();
 
 
