@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -122,7 +122,7 @@
             <div class="row pb-5">
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -134,7 +134,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -146,7 +146,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -158,7 +158,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -173,7 +173,7 @@
             <div class="row pb-5">
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -185,7 +185,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -209,7 +209,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -224,7 +224,7 @@
             <div class="row">
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -248,7 +248,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la
@@ -260,7 +260,7 @@
                 </div>
                 <div class="col-md">
                     <div class="card">
-                    <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
+                        <img class="card-img-top" src="assets/images/servicio-terapia-con-piedras.jpg" alt="terapia con piedras">
                         <div class="card-body">
                             <h4 class="card-title">Terapia con piedras</h4>
                             <p class="card-text">Combina el masaje terapéutico tradicional con la aplicación sobre la

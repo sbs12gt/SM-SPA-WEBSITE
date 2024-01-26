@@ -19,7 +19,7 @@
     <?php include_once('includes/header.php'); ?>
 
     <section id="Main_Carousel">
-        <div id="demo" class="carousel slide" data-ride="carousel">
+        <div id="demo" class="carousel slide carrusel_principal" data-ride="carousel">
             <!-- Indicators -->
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -28,15 +28,56 @@
             </ul>
             <!-- The slideshow -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active mensaje-a-la-derecha">
                     <img src="assets/images/demo-carrusel_marco-floral.png" alt="marco floral" class="img-fluid">
+                    <div>
+                        <div class="contenedor"></div>
+                        <div class="contenido">
+                            <h3>Masaje relajante<br></h3>
+                            <h1>Servicios de oferta</h1>
+                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, laudantium tenetur. Qui
+                                architecto minima facere, non laudantium nemo nam neque asperiores dolorem eius
+                                obcaecati velit!
+                                Corrupti ut asperiores id nostrum.<br>
+                                <br>
+                            </h5>
+                            <button class="btn btn-success">Ya!</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item sin-mensaje">
                     <img src="assets/images/demo-carrusel_masaje_naranja.jpeg" alt="masaje naranja" class="img-fluid">
+                    <div>
+                        <div class="contenedor"></div>
+                        <div class="contenido">
+                            <h3>Masaje relajante<br></h3>
+                            <h1>Servicios de oferta</h1>
+                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, laudantium tenetur. Qui
+                                architecto minima facere, non laudantium nemo nam neque asperiores dolorem eius
+                                obcaecati velit!
+                                Corrupti ut asperiores id nostrum.<br>
+                                <br>
+                            </h5>
+                            <button class="btn btn-success">Ya!</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="assets/images/demo-carrusel_productos-cosmeticos.jpeg" alt="productos cosméticos"
-                        class="img-fluid">
+                <div class="carousel-item mensaje-a-la-izquierda">
+                    <img src="assets/images/demo-carrusel_productos-cosmeticos.jpeg" alt="productos cosméticos" class="img-fluid">
+                    <div>
+                        <div class="contenedor"></div>
+                        <div class="contenido">
+                            <h3>Masaje relajante<br></h3>
+                            <h1>Servicios de oferta</h1>
+                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, laudantium tenetur. Qui
+                                architecto minima facere, non laudantium nemo nam neque asperiores dolorem eius
+                                obcaecati velit!
+                                Corrupti ut asperiores id nostrum.<br>
+                                <br>
+                            </h5>
+                            <button class="btn btn-success">Ya!</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -54,10 +95,7 @@
             <img src="assets/images/icono_ubicacion.svg" alt="icono de ubicación">
             <h3>Ubícanos</h3>
             <p>Encuéntranos en: 249 Jr. Padre Aguerrizabal, Pucallpa, Ucayali</p>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.7816841716468!2d-74.52979027076954!3d-8.389193572868056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bcf6a2432e13%3A0x60abfc0283e05128!2sJr.%20Padre%20Aguerrizabal%20249%2C%20Pucallpa%2025001!5e0!3m2!1ses-419!2spe!4v1667930022532!5m2!1ses-419!2spe"
-                width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.7816841716468!2d-74.52979027076954!3d-8.389193572868056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bcf6a2432e13%3A0x60abfc0283e05128!2sJr.%20Padre%20Aguerrizabal%20249%2C%20Pucallpa%2025001!5e0!3m2!1ses-419!2spe!4v1667930022532!5m2!1ses-419!2spe" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -94,8 +132,7 @@
                             <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control area-de-texto" placeholder="Mensaje"
-                                name="mensaje"></textarea>
+                            <textarea class="form-control area-de-texto" placeholder="Mensaje" name="mensaje"></textarea>
                             <small class="text-danger font-weight-bold"></small>
                         </div>
                         <button type="submit" class="btn btn-success">Enviar</button>
@@ -105,6 +142,7 @@
         </div>
     </section>
 
+    <?php include_once('includes/whatsapp.php'); ?>
     <?php include_once('includes/footer.php'); ?>
 </body>
 

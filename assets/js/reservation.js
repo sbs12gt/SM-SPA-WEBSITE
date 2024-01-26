@@ -1,6 +1,10 @@
+//VARIABLES PARA ALMACENAR FECHA Y HORA DE RESERVA
+var selectedDate = null;
+var selectedTime = null;
 
 $(document).ready(function () {
   llenarComboServicios();
+
   var BtnContinuar = $("#BtnContinuar");
 
   //SE RECUPERA EL CODIGO DEL SERVICIO ELEGIDO
@@ -24,16 +28,38 @@ $(document).ready(function () {
     });
   });
 
-  // SE PASA A LA SECCION DE MÉTODO PAGO
+  // SE PASA A LA SECCION DE FORMULARIO - VALIDACIONES DE FECHA Y HORA DE RESERVA SELECCIONADAS
   $("#BtnContinuar2").on("click", function () {
-    $("#Calendar_section").fadeOut(1000, function () {
-      $("#Client_Information_section").fadeIn(1000, function () {
-        $(this).css("display", "block");
+    console.log("selectedDate:", selectedDate);
+    console.log("selectedTime:", selectedTime);
+    // Verificar si se ha seleccionado una fecha y hora
+    if (selectedDate === null || selectedTime === null) {
+      // Si no se ha seleccionado una fecha o una hora, mostrar un Sweet Alert
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Debe seleccionar una fecha y hora para continuar.",
       });
-    });
+    } else {
+      // SE PASA LA VALIDACION CORRECTAMENTE
+      $("#Calendar_section").fadeOut(1000, function () {
+        $("#Client_Information_section").fadeIn(1000, function () {
+          $(this).css("display", "block");
+        });
+        // Actualizar fecha y hora reserva en seccion Client_Information
+        $("#Client_Information_Reservation_Datos").html(
+          `<i class="fa fa-calendar"></i> Fecha y Hora: ${selectedDate} - ${selectedTime}`
+        );
+
+        //Actualizar fecha y hora reserva en seccion Payment
+        $("#Payment_Reservation_Datos").html(
+          `<i class="fa fa-calendar"></i> Fecha y Hora: ${selectedDate} - ${selectedTime}`
+        );
+      });
+    }
   });
 
-  // SE PASA A LA SECCION DE FORMULARIO_CLIENTE
+  //SE PASA A LA SECCION DE METODO DE PAGO
   $("#BtnContinuar3").on("click", function () {
     if (validateClientInformationForm()) {
       var nombres = $("#validationNombres").val();
@@ -83,11 +109,10 @@ $(document).ready(function () {
     });
   });
 
-
   //CALENDARIO DE FECHAS
   var currentDate = new Date();
-  // Crear el calendario con X DIAS 
-  for (var i = 0; i < 15; i++) {
+  // Crear el calendario con X DIAS
+  for (var i = 0; i < 16; i++) {
     var currentDay = new Date();
     currentDay.setDate(currentDate.getDate() + i);
 
@@ -99,13 +124,13 @@ $(document).ready(function () {
       "-" +
       ("0" + currentDay.getDate()).slice(-2);
 
-    // Verificar si es domingo
-    if (currentDay.getDay() === 0) {
+    //VERIFICAR EL DIA DESCANSO POR EL INDEX
+    if (currentDay.getDay() === 1) {
       // Domingo: Agregar día inhabilitado
       $("#custom-calendar").append(
         '<div class="custom-day disabled-day" data-date="' +
           formattedDate +
-          '">dom ' +
+          '">lun ' +
           currentDay.getDate() +
           " " +
           getMonthName(currentDay.getMonth()) +
@@ -154,16 +179,83 @@ $(document).ready(function () {
     var days = ["DOM", "LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB"];
     return days[dayIndex];
   }
-  
-  $("#custom-calendar").on("click", ".custom-day", function () {
-    var selectedDate = $(this).attr("data-date");
-    console.log("Fecha seleccionada:", selectedDate);
-  });
-
-
 });
 
+//CLICKS EN CLASE CUSTOM-DAY
+var previousClickedDay = null;
+$("#custom-calendar").on("click", ".custom-day", function () {
+  // Quitar el estilo al custom-day clickeado previamente
+  if (previousClickedDay !== null) {
+    $(previousClickedDay).removeClass("clicked-day");
+  }
 
+  // Agregar el estilo al custom-day clickeado
+  $(this).addClass("clicked-day");
+
+  // Almacenar el custom-day clickeado para referencia futura
+  previousClickedDay = this;
+
+  selectedDate = $(this).attr("data-date");
+
+  selectedTime = null;
+  // Desvanecer la tabla de horarios actual
+  $("#custom-time_picker").fadeOut(500, function () {
+    mostrarTablaHorarios();
+    resetTimeTable();
+    // Mostrar la tabla de horarios con un efecto de desvanecimiento
+    $("#custom-time_picker").fadeIn(500);
+  });
+});
+
+//REESTABLECER TABLA DE HORARIOS A SUS VALORES INICIALES , SIN LA CLASE SELECTED TIME
+function resetTimeTable() {
+  $(".custom-time").removeClass("selected-time");
+}
+
+//CALENDARIO - ELEGIR LA HORA
+function mostrarTablaHorarios() {
+  var timePickerContainer = $("#custom-time_picker");
+
+  // Vaciar el contenido existente antes de agregar una nueva tabla
+  timePickerContainer.empty();
+
+  // Crear la nueva tabla
+  var timeTable = document.createElement("table");
+  timeTable.classList.add("table", "table-borderless", "text-center");
+  timeTable.style.tableLayout = "fixed";
+  var body = timeTable.createTBody();
+  var horaInicio = new Date("2024-01-01T09:30:00");
+  var horaFin = new Date("2024-01-01T17:15:00");
+  var intervalo = 15;
+
+  while (horaInicio <= horaFin) {
+    var row = body.insertRow();
+    for (var i = 0; i < 4; i++) {
+      var cell = row.insertCell();
+      cell.classList.add("custom-time");
+      cell.textContent = horaInicio.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      horaInicio.setMinutes(horaInicio.getMinutes() + intervalo);
+    }
+  }
+  // Agregar la tabla al contenedor
+  timePickerContainer.append(timeTable);
+}
+
+//COMPORTAMIENTO DE ELECCION DE HORARIO:
+$("#custom-time_picker").on("click", ".custom-time", function () {
+  // Eliminar la clase 'selected-time' de todos los elementos 'custom-time'
+  $(".custom-time").removeClass("selected-time");
+
+  // Agregar la clase 'selected-time' al elemento clickeado
+  $(this).addClass("selected-time");
+
+  // Lógica adicional al hacer clic en un elemento con la clase "custom-time"
+  selectedTime = $(this).text();
+  console.log("Hora seleccionada:", selectedTime);
+});
 
 //LLENAR LOS COMBOS DE LOS SERVICIOS
 function llenarComboServicios() {
@@ -284,7 +376,6 @@ function updatePaymentSection(nombres, apellidos, celular, correo) {
       "</p>"
   );
 }
-
 
 //CUENTA REGRESIVA - COUNTDOWN
 const Initial_minutes = 5; //MINUTOS DE DURACION COUNTDOWN

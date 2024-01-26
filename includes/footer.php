@@ -1,42 +1,82 @@
 <section id="Footer">
     <footer class="pie-de-pagina">
-        <div class="container-fluid contenedor-de-fila">
+        <div class="container contenedor-de-fila">
             <div class="row">
-                <div class="col-lg columna">
-                    <div>
-                        <h6>Atención:&nbsp;</h6>
+                <div class="columna">
+                    <div class="datos-de-contacto">
+                        <h6>Datos de contacto</h6>
                         <ul>
-                            <li><i class="fa fa-calendar-check-o"></i> Horario de atención: <br />Martes a sábado,
-                                de 11 a. m. a 9 p. m.</li>
-                            <br />
-                            <li><i class="fa fa-map-o"></i> Ubicación: <br />249 Jr. Padre Aguerrizabal, Pucallpa,
-                                Ucayali</li>
+                            <li>
+                                <span class="fa fa-map-marker"></span> Pucallpa, Ucayali
+                            </li>
+                            <li>
+                                <a href="tel:+51-987-654-321"><span class="fa fa-phone"></span> +51 987 654 321</a>
+                            </li>
+                            <li>
+                                <a href="mailto:email@example.com"><span class="fa fa-envelope"></span>
+                                    email@example.com</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg columna">
-                    <div>
-                        <h6>Contáctenos:&nbsp;</h6>
-                        <ul>
-                            <li><i class="fa fa-whatsapp"></i> WhatsApp: +51 987 654 321</li>
-                            <li><i class="fa fa-envelope"></i> Correo: email@example.com</li>
-                        </ul>
+                <div class="columna">
+                    <div class="horario-de-atencion">
+                        <h6>Horario de atención</h6>
+                        <table>
+                            <tr>
+                                <td>Lunes</td>
+                                <td>—————</td>
+                            </tr>
+                            <tr>
+                                <td>Martes</td>
+                                <td>9:30 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Miércoles</td>
+                                <td>9:30 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Jueves</td>
+                                <td>9:30 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Viernes</td>
+                                <td>9:30 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Sábado</td>
+                                <td>9:30 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Domingo</td>
+                                <td>9:30 - 18:00</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-                <div class="col-lg columna columna-ult">
-                    <div>
-                        <h6>Síguenos en:&nbsp;</h6>
-                        <ul>
-                            <li><i class="fa fa-facebook"></i> Facebook</li>
-                            <li><i class="fa fa-instagram"></i> Instagram</li>
-                        </ul>
+                <div class="columna">
+                    <div class="acerca-de-nosotros">
+                        <h6>Acerca de nosotros</h6>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum beatae nihil, cumque officiis
+                            laboriosam voluptates ut voluptate ea perspiciatis placeat optio natus tenetur in asperiores
+                            suscipit blanditiis nisi voluptas fugit?</p>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="text-right copyright">
-                <small>&copy; Copyright 2022, SM Spa | Todos los derechos reservados</small>
+        <hr class="container">
+        <div class="container nota-al-pie">
+            <div class="copyright">
+                <small>&copy; Copyright 2024, SM Spa | Todos los derechos reservados</small>
+            </div>
+            <div class="redes-sociales">
+                <a href="#facebook">
+                    <span class="fa fa-facebook-square"></span>
+                </a>
+                <a href="#instagram">
+                    <span class="fa fa-instagram"></span>
+                </a>
+            </div>
         </div>
     </footer>
 </section>

@@ -14,27 +14,79 @@
         display: none;
     }
 
+    .pie-de-pagina .columna {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
 }
 
 @media screen and (max-width:980px) {
 
     .logo h1 {
-        font-size: 40px;
+        font-size: 40px !important;
     }
-
+    
     .menu .panel-nav {
         display: none;
     }
 
-    .pie-de-pagina .columna {
-        display: flex; /*FLEX*/
-        justify-content: start;
-        border-right: none;
+    .pie-de-pagina * {
+        font-size: 0.75rem !important;
     }
 
-    .pie-de-pagina .copyright {
-        padding-right: 10px;
-        padding-bottom: 16px;
+    .pie-de-pagina .contenedor-de-fila {
+        padding-top: 20px !important;
+        padding-bottom: 0 !important;
+    }
+
+    .pie-de-pagina .columna {
+        width: 100%;
+    }
+
+    .pie-de-pagina .columna h6 {
+        font-size: 16px !important;
+    }
+
+    .pie-de-pagina .columna div {
+        margin-bottom: 16px;
+        width: 222px;
+    }
+
+    .whatsapp-icono, .whatsapp-icono:hover {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .whatsapp-icono span {
+        font-size: 25px !important;
+    }
+
+    .carrusel_principal .contenedor {
+        left: 0px !important;
+        right: 0px !important;
+    }
+
+    .carrusel_principal .contenido {
+        left: 20% !important;
+        right: 20% !important;
+    }
+
+    .carrusel_principal .contenido h3 {
+        font-size: 1.5rem;
+    }
+
+    .carrusel_principal .contenido h1 {
+        font-size: 2.25rem;
+    }
+
+    .carrusel_principal .contenido h5 {
+        font-size: 1rem;
+    }
+
+    .carrusel_principal .contenido button {
+        font-size: 0.75rem;
     }
 
     .ubicacion iframe {
@@ -53,48 +105,49 @@
 }
 
 .cabecera .contenedor-principal {
-    display: flex; /*FLEX*/
+    display: flex;
 }
 
-.logo a:link {
+.logo a:link,
+.logo a:visited,
+.logo a:hover,
+.logo a:active {
     text-decoration: none;
     color: #dedede;
 }
 
 .logo h1 {
-    margin-top: 10px;
     margin-bottom: 0px;
     font-family: 'Alex Brush';
     font-size: 60px;
-    line-height: 0.8; /*OPCIONAL TAL VEZ*/
+    line-height: 90%;
+    padding-top: 10px;
 }
 
 .logo p {
-    margin-bottom: 6px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
     font-size: 12px;
     opacity: 0.5;
 }
 
 .menu {
     flex-grow: 1;
-    display: flex; /*FLEX*/
+    display: flex;
     justify-content: end;
     align-items: center;
 }
 
-.menu .panel-nav {
-    display: flex; /*FLEX*/
-    align-items: center;
-    margin-left: 32px;
-}
-
-.menu .panel-nav a:link {
+.menu .panel-nav a:link,
+.menu .panel-nav a:visited {
     text-decoration: none;
-    color: #dedede;
+    color: #dedede; /* Reemplaza "tu-color-aqui" con el color deseado */
 }
 
-.menu .panel-nav a:link:hover {
+.menu .panel-nav a:hover,
+.menu .panel-nav a:active {
     opacity: 0.5;
+    color: #dedede; /* Reemplaza "tu-color-hover-aqui" con el color deseado para el estado hover */
 }
 
 .menu .btn, .menu .btn:hover {
@@ -102,7 +155,7 @@
     border: 1px solid #dedede;
 }
 
-.menu .btn:active { /*PUEDE QUE NO*/
+.menu .btn:active {
     background-color: #dedede;
     color: #005256;
 }
@@ -121,40 +174,141 @@
     color: #dedede;
 }
 
+.pie-de-pagina span {
+    width: 20px;
+}
+
+.pie-de-pagina ul, .pie-de-pagina p {
+    margin-bottom: 0;
+}
+
+.pie-de-pagina a {
+    text-decoration: none;
+    color: #dedede !important;
+}
+
+.pie-de-pagina a:hover {
+    opacity: 0.5;
+}
+
 .pie-de-pagina .contenedor-de-fila {
-    padding-top: 16px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .pie-de-pagina .columna {
-    display: flex; /*FLEX*/
+    display: flex;
     justify-content: center;
-    border-right: 1px solid rgb(233, 236, 239, 0.2);
 }
 
 .pie-de-pagina .columna h6 {
-    font-family: 'Alex Brush';
-    font-size: 25px;
+    font-family: 'DM Serif Display';
+    font-size: 20px;
 }
 
-.pie-de-pagina .columna ul {
-    padding-left: 20px;
+.pie-de-pagina .datos-de-contacto ul, .pie-de-pagina .acerca-de-nosotros p {
+    padding-left: 1rem;
 }
 
-.pie-de-pagina .columna li {
+.pie-de-pagina .columna .datos-de-contacto li {
     list-style: none;
+    height: 30px;
 }
 
-.pie-de-pagina .columna-ult {
-    border-right: none !important;
+.pie-de-pagina .columna .horario-de-atencion table {
+    border-collapse: separate;
+    border-spacing: 1rem 0;
 }
 
 .pie-de-pagina hr {
-    border-top: 1px solid rgb(233, 236, 239, 0.2);
+    border-color: #dedede;
+    opacity: 0.5;
+}
+
+.pie-de-pagina .nota-al-pie {
+    padding-bottom: 16px;
+    display: flex;
 }
 
 .pie-de-pagina .copyright {
-    padding-right: 50px;
-    padding-bottom: 16px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.pie-de-pagina .redes-sociales {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.whatsapp-icono, .whatsapp-icono:hover {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #34C759;
+    color: white;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-icono span {
+    font-size: 30px;
+}
+
+.carrusel_principal {
+    position: relative;
+}
+
+.carrusel_principal img {
+    max-height: 700px !important;
+    min-height: 500px !important;
+    width: 100% !important;
+}
+
+.carrusel_principal .mensaje-a-la-derecha .contenedor {
+    right: 0px;
+    left: 50%;
+}
+
+.carrusel_principal .mensaje-a-la-izquierda .contenedor {
+    left: 0px;
+    right: 50%;
+}
+
+.carrusel_principal .contenedor {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    background-color: gray;
+    opacity: 0.75;
+}
+
+.carrusel_principal .mensaje-a-la-derecha .contenido {
+    right: 25%;
+    left: 55%;
+}
+
+.carrusel_principal .mensaje-a-la-izquierda .contenido {
+    left: 25%;
+    right: 55%;
+}
+
+.carrusel_principal .contenido {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.carrusel_principal .sin-mensaje .contenedor, .carrusel_principal .sin-mensaje .contenido {
+    display: none;
 }
 
 .ubicacion {
@@ -162,7 +316,6 @@
     display: flex; /*FLEX*/
     flex-direction: column;
     align-items: center;
-    
 }
 
 .ubicacion img {
@@ -238,49 +391,4 @@
 
 .max-width-1000px {
     max-width: 1000px !important;
-}
-
-
-
-
-.izquierda {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.derecha {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.subtitulos {
-    font-family: 'DM Serif Display';
-    color: #005256;   
-}
-
-.bg_verde {
-    color: #005256;
-}
-
-.espaciado_principal {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.subtitulo_informacion {
-    font-family: 'DM Serif Display';
-}
-.MyV {
-    font-family: 'Alex Brush';
-    font-size: 25px;
-}
-
-@media screen and (max-width: 767px) {
-
-    .titulo_inputs {
-        font-size: 25px;
-    }
-
 }
