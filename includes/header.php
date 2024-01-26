@@ -14,11 +14,12 @@
                         <a class="nav-link" href="about.php">Nosotros</a>
                         <a class="nav-link" href="promotions.php">Promociones</a>
                         <a class="nav-link" href="services.php">Servicios</a>
-                        <a class="nav-link" href="reservations.php">Reserva</a>
+                        <a class="nav-link" href="reservation.php">Reserva</a>
                     </nav>
                 </div>
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-expanded="false">
                         <i class="fa fa-navicon"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -26,7 +27,7 @@
                         <a class="dropdown-item" type="button" href="about.php">Nosotros</a>
                         <a class="dropdown-item" type="button" href="promotions.php">Promociones</a>
                         <a class="dropdown-item" type="button" href="services.php">Servicios</a>
-                        <a class="dropdown-item" type="button" href="reservations.php">Reserva</a>
+                        <a class="dropdown-item" type="button" href="reservation.php">Reserva</a>
                     </div>
                 </div>
             </div>
