@@ -93,8 +93,14 @@
         height: 400px;
     }
 
-    .tiny-window-25px {
-        font-size: 25px;
+    .tiny-window {
+        font-size: 30px;
+    }
+    .tiny-window-caption{
+        font-size: 22px;
+    }
+    .tiny-window-caption_label{
+        font-size: 15px;
     }
 
 }

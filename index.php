@@ -102,11 +102,9 @@
     <section id="Contact_Form">
         <div class="container pt-5 pb-5">
             <!-- Título -->
-            <h1 class="card bg-success text-white text-center mb-3 tiny-window-25px">Formulario de contacto</h1>
+            <h1 class="text-center mb-3 tiny-window" style="font-family: 'DM Serif Display';color:#005256;"><i class="fa fa-wpforms"></i> Contáctenos: </h1>
             <!-- Imagen -->
-            <div class="card mb-3 width-100-pc">
-                <img src="assets/images/demo-formulario_instalacion-spa.jpg" alt="instalación del spa">
-            </div>
+            <img class="mb-3 img-fluid" style="border-radius: 30px;" src="assets/images/demo-formulario_instalacion-spa.jpg" alt="instalación del spa">
             <!-- Formulario -->
             <div class="card bg-light">
                 <div class="card-body">

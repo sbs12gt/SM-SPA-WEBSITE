@@ -1,5 +1,5 @@
 <section id="Header">
-    <header class="cabecera">
+    <header class="cabecera sticky-top">
         <div class="container contenedor-principal">
             <div class="logo">
                 <a href="index.php">
@@ -14,7 +14,7 @@
                         <a class="nav-link" href="about.php">Nosotros</a>
                         <a class="nav-link" href="promotions.php">Promociones</a>
                         <a class="nav-link" href="services.php">Servicios</a>
-                        <a class="nav-link" href="reservation.php">Reserva</a>
+                        <a class="nav-link" href="reservations.php">Reserva</a>
                     </nav>
                 </div>
                 <div class="dropdown">
@@ -27,7 +27,7 @@
                         <a class="dropdown-item" type="button" href="about.php">Nosotros</a>
                         <a class="dropdown-item" type="button" href="promotions.php">Promociones</a>
                         <a class="dropdown-item" type="button" href="services.php">Servicios</a>
-                        <a class="dropdown-item" type="button" href="reservation.php">Reserva</a>
+                        <a class="dropdown-item" type="button" href="reservations.php">Reserva</a>
                     </div>
                 </div>
             </div>

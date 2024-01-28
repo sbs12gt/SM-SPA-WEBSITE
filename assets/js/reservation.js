@@ -1,3 +1,5 @@
+var URL_BASE = "http://localhost:8080";
+
 //VARIABLES PARA ALMACENAR FECHA Y HORA DE RESERVA
 var selectedDate = null;
 var selectedTime = null;
@@ -262,7 +264,7 @@ function llenarComboServicios() {
   var cmbServicios = $("#cmbServicios");
 
   $.ajax({
-    url: "http://localhost:8080/spa/servicio/listar",
+    url: URL_BASE+"/spa/servicio/listarServiciosDisponibles",
     method: "GET",
     dataType: "json",
     success: function (data) {
@@ -291,7 +293,7 @@ function llenarComboServicios() {
 //OBTENER LA INFORMACION DEL SERVICIO SELECCIONADO
 function obtenerDetallesServicio(servicioId) {
   $.ajax({
-    url: "http://localhost:8080/spa/servicio/buscar/" + servicioId,
+    url: URL_BASE+"/spa/servicio/buscar/" + servicioId,
     method: "GET",
     dataType: "json",
     success: function (detallesServicio) {
