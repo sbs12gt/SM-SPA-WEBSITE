@@ -15,7 +15,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <?php include_once('includes/header.php'); ?>
 
     <section id="Main_Carousel">
@@ -41,7 +40,7 @@
                                 Corrupti ut asperiores id nostrum.<br>
                                 <br>
                             </h5>
-                            <button class="btn btn-success">Ya!</button>
+                           
                         </div>
                     </div>
                 </div>
@@ -108,40 +107,38 @@
             <!-- Formulario -->
             <div class="card bg-light">
                 <div class="card-body">
-                    <form action="#Contact_Form" method="post">
+                    <form  method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Nombres" name="nombres">
                             <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Correo" name="correo">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Celular" name="celular">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Asunto" name="asunto">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control area-de-texto" placeholder="Mensaje" name="mensaje"></textarea>
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
-                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <input type="submit" class="btn btn-success" name="enviar">
+
                     </form>
                 </div>
             </div>
+            <?php include('includes/correo.php')?>
         </div>
     </section>
 
     <?php include_once('includes/whatsapp.php'); ?>
     <?php include_once('includes/footer.php'); ?>
+    
 </body>
 
 </html>

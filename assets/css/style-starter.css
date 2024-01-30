@@ -20,6 +20,7 @@
         max-width: 100%;
     }
 
+    
 }
 
 @media screen and (max-width:980px) {
@@ -102,9 +103,7 @@
     .tiny-window-caption_label{
         font-size: 15px;
     }
-
 }
-
 .cabecera {
 	background-color: #005256;
     color: #dedede;
@@ -138,6 +137,7 @@
 }
 
 .menu {
+    font-family: 'DM Serif Display';
     flex-grow: 1;
     display: flex;
     justify-content: end;
@@ -150,10 +150,14 @@
     color: #dedede; /* Reemplaza "tu-color-aqui" con el color deseado */
 }
 
-.menu .panel-nav a:hover,
+.menu .panel-nav a:hover {
+    opacity: 0.5;
+    color: #dedede;
+}
+
 .menu .panel-nav a:active {
     opacity: 0.5;
-    color: #dedede; /* Reemplaza "tu-color-hover-aqui" con el color deseado para el estado hover */
+    color: #dedede;
 }
 
 .menu .btn, .menu .btn:hover {
@@ -354,11 +358,12 @@
 }
 
 .carrusel-personal .carrusel {
-    max-width: 424px;
+    max-width: 600px;
 }
 
 .carrusel-personal .carrusel img {
-    height: 289px;
+    width: 600px;
+    height: 380px;
 }
 
 .carrusel-personal .carrusel h5 {

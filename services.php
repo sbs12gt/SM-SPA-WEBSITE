@@ -26,11 +26,17 @@
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ul class="carousel-indicators">
-                    <!-- Indicators will be added dynamically using JavaScript -->
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
                 </ul>
                 <!-- The slideshow -->
                 <div class="carousel-inner" style="border-radius: 30px;">
-                    <!-- Carousel items will be added dynamically using JavaScript -->
+                    <div class="carousel-item active">
+                        <img src="https://i0.wp.com/qpwebsite.s3.amazonaws.com/uploads/2017/10/b5_faciales.jpg?fit=1200%2C800&ssl=1" class="img-fluid" alt="aromaterapia">
+                        <div class="carousel-caption" style="border-radius: 30px;background-color:#005256;color:#dedede;">
+                            <h3 class="tiny-window-caption" style="font-family: 'DM Serif Display';">Tratamiento Facial Hidratante</h3>
+                            <p class="tiny-window-caption_label"><i class="fa fa-clock-o"></i> Duración: x minutos | <i class="fa fa-money"></i> Precio: S/ x</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Left and right controls -->
                 <a class="carousel-control-prev" href="#demo" data-slide="prev">
