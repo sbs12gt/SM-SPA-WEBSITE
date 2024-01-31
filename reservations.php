@@ -51,7 +51,7 @@
             </div>
 
             <div class="card bg-light text-dark mt-3">
-                <h2 class="text-center mt-3">Elección del Servicio:</h2>
+                <h3 class="text-center mt-3">Elección del Servicio:</h3>
 
                 <div class="card-body">
                     <div class="row">
@@ -89,7 +89,7 @@
             </div>
 
             <div class="card bg-light text-dark mt-3">
-                <h2 class="text-center mt-3">Elección Fecha y Hora:</h2>
+                <h3 class="text-center mt-3">Elección Fecha y Hora:</h3>
 
                 <div class="card-body">
                     <div class="row">
@@ -100,9 +100,11 @@
                                 <i class="fa fa-money"></i> Precio: S/60
                             </p>
                             <!-- Agrega el contenedor del calendario justo debajo de la información de duración y precio -->
-                            <div id="custom-calendar"></div>
+                            <div id="custom-calendar" class="text-center"></div>
                         </div>
                         <div class="col-md-6 border-left">
+                            <h6 class="mt-4"><br><i class="	fa fa-hand-o-down"></i> Seleccione un horario:</h6>
+                            <div id="custom-time_picker" class="text-center mt-1"></div>
 
                         </div>
                     </div>
@@ -127,7 +129,7 @@
             </div>
 
             <div class="card bg-light text-dark mt-3">
-                <h2 class="text-center mt-3">Datos del Cliente:</h2>
+                <h3 class="text-center mt-3">Datos del Cliente:</h3>
 
                 <div class="card-body">
                     <div class="row">
@@ -136,6 +138,10 @@
                             <p id="servicio_Client_Information_DuracionPrecio">
                                 <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
                                 <i class="fa fa-money"></i> Precio: S/60
+                            </p>
+                            <h5>Datos Reserva:</h5>
+                            <p id="Client_Information_Reservation_Datos">
+                                <i class="fa fa-calendar"></i> Fecha y Hora: 2024/01/2024 - 03:50
                             </p>
                         </div>
                         <div class="col-md-6 border-left">
@@ -200,7 +206,7 @@
             </div>
 
             <div class="card bg-light text-dark mt-3">
-                <h2 class="text-center mt-3">Elección Método Pago:</h2>
+                <h3 class="text-center mt-3">Elección Método Pago:</h3>
 
                 <div class="card-body">
                     <div class="row">
@@ -209,6 +215,10 @@
                             <p id="servicio_Payment_DuracionPrecio">
                                 <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
                                 <i class="fa fa-money"></i> Precio: S/60
+                            </p>
+                            <h5>Datos Reserva:</h5>
+                            <p id="Payment_Reservation_Datos">
+                                <i class="fa fa-calendar"></i> Fecha y Hora: 2024/01/2024 - 03:50
                             </p>
                             <h5>Datos Cliente:</h5>
                             <p id="Payment_Datos_Cliente">
@@ -237,10 +247,18 @@
 
 
     <style>
+        :root {
+
+            --white_spa: #dedede;
+            --white_disabled_spa: #828282;
+            --green_spa: #005256;
+        }
+
         .countdown {
-            background-color: red;
-            color: white;
+            background-color: var(--green_spa);
+            color: var(--white_spa);
             float: right;
+            border: 1px solid #ccc;
             border-radius: 30px;
             padding: 3px 15px;
         }
@@ -276,32 +294,68 @@
             text-align: center;
             margin: 5px;
             cursor: pointer;
-            border: 1px solid #ccc;
+            border: 1px solid var(--green_spa);
             border-radius: 5px;
             line-height: 100px;
             text-transform: uppercase;
-            font-weight: bold;
             transition: background-color 0.3s;
-            background-color: #007bff;
-            color: white;
+            background-color: var(--white_spa);
+            color: var(--green_spa);
         }
 
 
-        .custom-day:hover {
-            background-color: white;
-            color: #007bff;
-            border: 1px solid #007bff;
+        .custom-day:hover,
+        .custom-day.clicked-day {
+            background-color: var(--green_spa);
+            color: var(--white_spa);
+            border: 1px solid var(--green_spa);
+            font-weight: bold;
         }
 
         .disabled-day {
-            background-color: #dc3444;
-            color: white;
+            background-color: var(--white_disabled_spa);
+            color: var(--white_spa);
             cursor: not-allowed;
-            pointer-events: none; 
+            pointer-events: none;
         }
 
         .day-name {
             font-size: 14px;
+        }
+
+        .custom-time {
+            width: 25%;
+            cursor: pointer;
+            padding: 5px;
+            transition: background-color 0.3s;
+            color: var(--green_spa);
+        }
+
+        .custom-time:hover,
+        .custom-time.selected-time {
+            background-color: var(--green_spa);
+            color: var(--white_spa);
+            font-weight: bold;
+
+        }
+
+        #custom-time_picker {
+            display: none;
+            
+        }
+
+
+        #custom-time_picker table {
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+
+        #custom-time_picker td {
+            border: 1px solid var(--green_spa);
+            padding: 8px;
+            text-align: center;
+            border-radius: 10px;
+            /* Ajusta el valor según sea necesario */
         }
     </style>
     <script src="assets/js/reservation.js"></script>

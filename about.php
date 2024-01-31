@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -56,7 +56,7 @@
                     <li data-target="#demo" data-slide-to="2"></li>
                 </ul>
                 <!-- The slideshow -->
-                <div class="carousel-inner">
+                <div class="carousel-inner" style="border-radius: 30px;">
                     <div class="carousel-item active">
                         <img src="assets/images/demo-carrusel_clientas.jpg" class="img-fluid" alt="clientas">
                     </div>
@@ -114,51 +114,36 @@
     <section id="Staff_Carousel">
         <div class="container carrusel-personal">
             <div class="titulo">
-                <h3>Nuestro equipo de expertos</h3>
+                <h1 class="text-center tiny-window mb-2" style="font-family: 'DM Serif Display';color:#005256;"><i class="fa fa-users"></i> Nuestro Equipo de Expertos:</h1>
             </div>
             <div class="carrusel">
-                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
+                <div id="staffCarousel" class="carousel slide" data-ride="carousel">
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner" style="border-radius: 30px;">
                         <div class="carousel-item active">
-                            <img src="assets/images/empleado1.jpg" class="d-block w-100" alt="empleado 1">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Sandra Muñoz</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/images/empleado2.jpg" class="d-block w-100" alt="empleado 2">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Ana Maira</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/images/empleado3.jpg" class="d-block w-100" alt="empledo 3">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Lizbeth Gonzales</h5>
+                            <img src="https://i0.wp.com/qpwebsite.s3.amazonaws.com/uploads/2017/10/b5_faciales.jpg?fit=1200%2C800&ssl=1" class="img-fluid" alt="aromaterapia">
+                            <div class="carousel-caption" style="border-radius: 30px;background-color:#005256;color:#dedede;">
+                                <h3 class="tiny-window-caption" style="font-family: 'DM Serif Display';">Tratamiento Facial Hidratante</h3>
+                                <p class="tiny-window-caption_label"><i class="fa fa-clock-o"></i> Duración: x minutos | <i class="fa fa-money"></i> Precio: S/ x</p>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions"
-                        data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions"
-                        data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </button>
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#staffCarousel" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#staffCarousel" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <?php include_once('includes/footer.php'); ?>
+    <script src="assets/js/about.js"></script>
 </body>
 
 </html>

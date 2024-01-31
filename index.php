@@ -17,7 +17,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <?php include_once('includes/header.php'); ?>
 
     <section id="Main_Carousel">
@@ -43,7 +42,7 @@
                                 Corrupti ut asperiores id nostrum.<br>
                                 <br>
                             </h5>
-                            <button class="btn btn-success">Ya!</button>
+                           
                         </div>
                     </div>
                 </div>
@@ -65,8 +64,7 @@
                     </div>
                 </div>
                 <div class="carousel-item mensaje-a-la-izquierda">
-                    <img src="assets/images/demo-carrusel_productos-cosmeticos.jpeg" alt="productos cosméticos"
-                        class="img-fluid">
+                    <img src="assets/images/demo-carrusel_productos-cosmeticos.jpeg" alt="productos cosméticos" class="img-fluid">
                     <div>
                         <div class="contenedor"></div>
                         <div class="contenido">
@@ -98,60 +96,51 @@
             <img src="assets/images/icono_ubicacion.svg" alt="icono de ubicación">
             <h3>Ubícanos</h3>
             <p>Encuéntranos en: 249 Jr. Padre Aguerrizabal, Pucallpa, Ucayali</p>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.7816841716468!2d-74.52979027076954!3d-8.389193572868056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bcf6a2432e13%3A0x60abfc0283e05128!2sJr.%20Padre%20Aguerrizabal%20249%2C%20Pucallpa%2025001!5e0!3m2!1ses-419!2spe!4v1667930022532!5m2!1ses-419!2spe"
-                width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.7816841716468!2d-74.52979027076954!3d-8.389193572868056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bcf6a2432e13%3A0x60abfc0283e05128!2sJr.%20Padre%20Aguerrizabal%20249%2C%20Pucallpa%2025001!5e0!3m2!1ses-419!2spe!4v1667930022532!5m2!1ses-419!2spe" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
     <section id="Contact_Form">
         <div class="container pt-5 pb-5">
             <!-- Título -->
-            <h1 class="card bg-success text-white text-center mb-3 tiny-window-25px">Formulario de contacto</h1>
+            <h1 class="text-center mb-3 tiny-window" style="font-family: 'DM Serif Display';color:#005256;"><i class="fa fa-wpforms"></i> Contáctenos: </h1>
             <!-- Imagen -->
-            <div class="card mb-3 width-100-pc">
-                <img src="assets/images/demo-formulario_instalacion-spa.jpg" alt="instalación del spa">
-            </div>
+            <img class="mb-3 img-fluid" style="border-radius: 30px;" src="assets/images/demo-formulario_instalacion-spa.jpg" alt="instalación del spa">
             <!-- Formulario -->
             <div class="card bg-light">
                 <div class="card-body">
-                    <form action="#Contact_Form" method="post">
+                    <form  method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Nombres" name="nombres">
                             <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Correo" name="correo">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Celular" name="celular">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Asunto" name="asunto">
-                            <small class="text-danger font-weight-bold"></small>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control area-de-texto" placeholder="Mensaje"
-                                name="mensaje"></textarea>
-                            <small class="text-danger font-weight-bold"></small>
+                            <textarea class="form-control area-de-texto" placeholder="Mensaje" name="mensaje"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <input type="submit" class="btn btn-success" name="enviar">
+
                     </form>
                 </div>
             </div>
+            <?php include('includes/correo.php')?>
         </div>
     </section>
 
     <?php include_once('includes/whatsapp.php'); ?>
-
     <?php include_once('includes/footer.php'); ?>
+    
 </body>
 
 </html>

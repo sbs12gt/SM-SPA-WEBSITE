@@ -36,8 +36,12 @@
         font-size: 0.75rem !important;
     }
 
+    .pie-de-pagina .redes-sociales span {
+        font-size: 20px !important;
+    }
+
     .pie-de-pagina .contenedor-de-fila {
-        padding-top: 20px !important;
+        padding-top: 32px !important;
         padding-bottom: 0 !important;
     }
 
@@ -45,13 +49,14 @@
         width: 100%;
     }
 
-    .pie-de-pagina .columna h6 {
-        font-size: 16px !important;
-    }
-
     .pie-de-pagina .columna div {
         margin-bottom: 16px;
-        width: 222px;
+        width: 50%;
+        min-width: 300px;
+    }
+
+    .pie-de-pagina .columna h6 {
+        font-size: 16px !important;
     }
 
     .whatsapp-icono, .whatsapp-icono:hover {
@@ -93,8 +98,14 @@
         height: 400px;
     }
 
-    .tiny-window-25px {
-        font-size: 25px;
+    .tiny-window {
+        font-size: 30px;
+    }
+    .tiny-window-caption{
+        font-size: 22px;
+    }
+    .tiny-window-caption_label{
+        font-size: 15px;
     }
 
 }
@@ -110,15 +121,15 @@
 
 .logo a {
     text-decoration: none;
-    color: #dedede !important;
+    color: #dedede;
 }
 
 .logo h1 {
     margin-bottom: 0px;
+    padding-top: 10px;
     font-family: 'Alex Brush';
     font-size: 60px;
     line-height: 90%;
-    padding-top: 10px;
 }
 
 .logo p {
@@ -137,14 +148,14 @@
 
 .menu .panel-nav a {
     text-decoration: none;
-    color: #dedede !important;
+    color: #dedede;
 }
 
 .menu .panel-nav a:hover {
     opacity: 0.5;
 }
 
-.menu .btn, .menu .btn:hover {
+.menu .btn {
     color: #dedede;
     border: 1px solid #dedede;
 }
@@ -168,17 +179,13 @@
     color: #dedede;
 }
 
-.pie-de-pagina span {
-    width: 20px;
-}
-
 .pie-de-pagina ul, .pie-de-pagina p {
     margin-bottom: 0;
 }
 
 .pie-de-pagina a {
     text-decoration: none;
-    color: #dedede !important;
+    color: #dedede;
 }
 
 .pie-de-pagina a:hover {
@@ -204,12 +211,16 @@
     padding-left: 1rem;
 }
 
-.pie-de-pagina .columna .datos-de-contacto li {
+.pie-de-pagina .datos-de-contacto li {
     list-style: none;
-    height: 30px;
+    line-height: 200%;
 }
 
-.pie-de-pagina .columna .horario-de-atencion table {
+.pie-de-pagina .datos-de-contacto span {
+    width: 20px;
+}
+
+.pie-de-pagina .horario-de-atencion table {
     border-collapse: separate;
     border-spacing: 1rem 0;
 }
@@ -230,19 +241,23 @@
 }
 
 .pie-de-pagina .redes-sociales {
-    flex-grow: 1;
     text-align: right;
+    white-space: nowrap;
+}
+
+.pie-de-pagina .redes-sociales span {
+    font-size: 20px;
 }
 
 .whatsapp-icono, .whatsapp-icono:hover {
     position: fixed;
-    bottom: 40px;
+    bottom: 65px;
     right: 20px;
     width: 50px;
     height: 50px;
+    z-index: 99;
     background-color: #34C759;
     color: white;
-    z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,11 +357,12 @@
 }
 
 .carrusel-personal .carrusel {
-    max-width: 424px;
+    max-width: 600px;
 }
 
 .carrusel-personal .carrusel img {
-    height: 289px;
+    width: 600px;
+    height: 380px;
 }
 
 .carrusel-personal .carrusel h5 {

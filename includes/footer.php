@@ -7,14 +7,14 @@
                         <h6>Datos de contacto</h6>
                         <ul>
                             <li>
-                                <span class="fa fa-map-marker"></span> Pucallpa, Ucayali
+                                <span class="fa fa-map-marker"></span> Jr. Padre Aguerrizabal 249, Pucallpa, Ucayali
                             </li>
                             <li>
-                                <a href="tel:+51-987-654-321"><span class="fa fa-phone"></span> +51 987 654 321</a>
+                                <a href="tel:+51 975 440 160"><span class="fa fa-phone"></span> +51 975 440 160</a>
                             </li>
                             <li>
-                                <a href="mailto:email@example.com"><span class="fa fa-envelope"></span>
-                                    email@example.com</a>
+                                <a href="mailto:smspa004@hotmail.com"><span class="fa fa-envelope"></span>
+                                    smspa004@hotmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -57,23 +57,23 @@
                 <div class="columna">
                     <div class="acerca-de-nosotros">
                         <h6>Acerca de nosotros</h6>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum beatae nihil, cumque officiis
-                            laboriosam voluptates ut voluptate ea perspiciatis placeat optio natus tenetur in asperiores
-                            suscipit blanditiis nisi voluptas fugit?</p>
+                        <p>Somos una empresa orientada en la relajación y el bienestar mental, con orientación en el contacto con la naturaleza. Nuestro objetivo es alejarte del estrés del día a día. Contamos con terapeutas calificados e instalaciones ambientadas que te transportarán a la Amazonía.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <hr class="container">
+        <div class="container">
+            <hr>
+        </div>
         <div class="container nota-al-pie">
             <div class="copyright">
                 <small>&copy; Copyright 2024, SM Spa | Todos los derechos reservados</small>
             </div>
             <div class="redes-sociales">
-                <a href="#facebook">
+                <a target="_blank" href="https://www.facebook.com/evelynspaperu/">
                     <span class="fa fa-facebook-square"></span>
                 </a>
-                <a href="#instagram">
+                <a target="_blank" href="https://www.instagram.com/evelynspaperu/">
                     <span class="fa fa-instagram"></span>
                 </a>
             </div>

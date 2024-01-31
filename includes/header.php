@@ -27,7 +27,7 @@
                         <a class="dropdown-item" type="button" href="about.php">Nosotros</a>
                         <a class="dropdown-item" type="button" href="promotions.php">Promociones</a>
                         <a class="dropdown-item" type="button" href="services.php">Servicios</a>
-                        <a class="dropdown-item" type="button" href="reservation.php">Reserva</a>
+                        <a class="dropdown-item" type="button" href="reservations.php">Reserva</a>
                     </div>
                 </div>
             </div>
