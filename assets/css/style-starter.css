@@ -108,7 +108,7 @@
     display: flex;
 }
 
-.logo a:link {
+.logo a {
     text-decoration: none;
     color: #dedede !important;
 }
@@ -135,7 +135,7 @@
     align-items: center;
 }
 
-.menu .panel-nav a:link {
+.menu .panel-nav a {
     text-decoration: none;
     color: #dedede !important;
 }

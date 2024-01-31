@@ -2,6 +2,8 @@
 <html lang="es">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <title>SM Spa | Esencia y Belleza</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">

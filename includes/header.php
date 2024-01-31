@@ -14,7 +14,7 @@
                         <a class="nav-link" href="about.php">Nosotros</a>
                         <a class="nav-link" href="promotions.php">Promociones</a>
                         <a class="nav-link" href="services.php">Servicios</a>
-                        <a class="nav-link" href="reservation.php">Reserva</a>
+                        <a class="nav-link" href="reservations.php">Reserva</a>
                     </nav>
                 </div>
                 <div class="dropdown">
