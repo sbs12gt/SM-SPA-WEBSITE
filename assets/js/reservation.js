@@ -264,7 +264,7 @@ function llenarComboServicios() {
   var cmbServicios = $("#cmbServicios");
 
   $.ajax({
-    url: URL_BASE+"/spa/servicio/listarServiciosDisponibles",
+    url: URL_BASE+"/spa/servicios/listarServiciosDisponibles",
     method: "GET",
     dataType: "json",
     success: function (data) {
@@ -293,7 +293,7 @@ function llenarComboServicios() {
 //OBTENER LA INFORMACION DEL SERVICIO SELECCIONADO
 function obtenerDetallesServicio(servicioId) {
   $.ajax({
-    url: URL_BASE+"/spa/servicio/buscar/" + servicioId,
+    url: URL_BASE+"/spa/servicios/buscar/" + servicioId,
     method: "GET",
     dataType: "json",
     success: function (detallesServicio) {

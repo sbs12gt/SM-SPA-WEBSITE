@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 function listarEmpleados() {
   $.ajax({
-    url: URL_BASE + "/spa/empleado/listarEmpleadosDisponibles",
+    url: URL_BASE + "/spa/empleados/listarEmpleadosDisponibles",
     method: "GET",
     dataType: "json",
     success: function (data) {
@@ -26,11 +26,11 @@ function listarEmpleados() {
         var carouselItem = `
                     <div class="carousel-item ${i === 0 ? "active" : ""}">
                         <img src="${empleado.url_foto}" alt="${
-          empleado.nombre
+          empleado.nombres + " " + empleado.apellidos
         }" class="img-fluid">
                         <div class="carousel-caption" style="border-radius: 30px;background-color:#005256;color:#dedede;">
                             <h4 class="tiny-window-caption" style="font-family: 'DM Serif Display';">${
-                              empleado.nombre
+                              empleado.nombres + " " + empleado.apellidos
                             }</h4>
                         </div>
                     </div>

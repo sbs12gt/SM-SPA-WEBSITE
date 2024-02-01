@@ -19,7 +19,7 @@ function calcularTarjetasPorFila() {
 
 function listarServicios() {
   $.ajax({
-    url: URL_BASE + "/spa/servicio/listarServiciosDisponibles",
+    url: URL_BASE + "/spa/servicios/listarServiciosDisponibles",
     method: "GET",
     dataType: "json",
     success: function (data) {
@@ -70,7 +70,7 @@ function listarServicios() {
 
 function cargarServiciosPopulares() {
   $.ajax({
-    url: URL_BASE + "/spa/servicio/listarServiciosPopulares",
+    url: URL_BASE + "/spa/servicios/listarServiciosPopulares",
     method: "GET",
     dataType: "json",
     success: function (data) {
