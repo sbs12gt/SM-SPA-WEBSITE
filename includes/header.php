@@ -1,5 +1,5 @@
 <section id="Header">
-    <header class="cabecera sticky-top">
+    <header class="cabecera">
         <div class="container contenedor-principal">
             <div class="logo">
                 <a href="index.php">
