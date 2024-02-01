@@ -1,35 +1,90 @@
 <?php
+require "PHPMailer/Exception.php";
+require "PHPMailer/PHPMailer.php";
+require "PHPMailer/SMTP.php";
 
-if (isset($_POST['enviar'])) {
-    if (
-        !empty($_POST['nombres']) && !empty($_POST['apellidos']) && !empty($_POST['correo']) &&
-        !empty($_POST['celular']) && !empty($_POST['asunto']) && !empty($_POST['mensaje'])
-    ) {
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-        $nombres = $_POST['nombres'];
-        $apellidos = $_POST['apellidos'];
-        $correo = $_POST['correo'];
-        $celular = $_POST['celular'];
-        $asunto = $_POST['asunto'];
-        $mensaje = $_POST['mensaje'];
-        $cuerpo = "Nombres: " . $nombres . "\r\n" .
-            "Apellidos: " . $apellidos . "\r\n" .
-            "Correo: " . $correo . "\r\n" .
-            "Celular: " . $celular . "\r\n" .
-            "Mensaje: " . $mensaje;
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['enviar'])) {
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $correo = $_POST['correo'];
+    $celular = $_POST['celular'];
+    $asunto = $_POST['asunto'];
+    $mensaje = $_POST['mensaje'];
 
-        $header = "From: noreply@email.com" . "\r\n";
-        $header .= "Reply-To:noreply@email.com" . "\r\n";
-        $header .= "X-Mailer: PHP/" . phpversion();
-
-        $mail = mail($correo, $asunto, $cuerpo, $header);
-
-        if ($mail) {
-            echo ("<h1>Mail Enviado con éxito</h1>");
-        } else {
-            echo ("<h1>Error al enviar el correo</h1>");
-        }
+    // Validar que los campos requeridos no estén vacíos
+    if (empty($nombres) || empty($apellidos) || empty($correo) || empty($celular) || empty($asunto) || empty($mensaje)) {
+        echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Debe completar todos los campos.',
+                }).then(() => {
+                    window.location.href = '#Contact_Form'; // Cambiado para volver al formulario
+                });
+            </script>";
     } else {
-        echo ("<h1>Por favor, completa todos los campos</h1>");
+        $mail = new PHPMailer(true);
+
+        try {
+            // Configuración del servidor SMTP
+            $mail->isSMTP();
+            $mail->Host = 'smtp.office365.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'smspaperu@hotmail.com';
+            $mail->Password = 'Elmejorspadelmundo';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            // Configuración del correo
+            $mail->setFrom('smspaperu@hotmail.com', 'Sm Spa Contacto');
+            $mail->addAddress($correo, $nombres . ' ' . $apellidos);
+            $mail->addCC('smspaperu@hotmail.com', 'Contacto');
+            $mail->Subject = 'Contacto - ' . $asunto;
+            $mail->Body = "Nombres: $nombres \r\nApellidos: $apellidos \r\nCorreo: $correo \r\nCelular: $celular \r\nMensaje: $mensaje";
+
+            // Enviar el correo
+            $mail->send();
+
+            // Redirigir después de enviar el correo
+            echo "
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: 'Mail Enviado con éxito',
+                    }).then(() => {
+                        window.location.href = 'index.php'; // Cambiado para volver al formulario
+                    });
+                </script>";
+        } catch (Exception $e) {
+            // Mensaje de error
+            echo "
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Error al enviar el correo: {$mail->ErrorInfo}',
+                    }).then(() => {
+                        window.location.href = 'index.php'; // Cambiado para volver al formulario
+                    });
+                </script>";
+        }
     }
+} elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Si la solicitud POST no contiene el botón 'enviar'
+    echo "
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Solicitud incorrecta',
+            }).then(() => {
+                window.location.href = '#Contact_Form'; // Cambiado para volver al formulario
+            });
+        </script>";
 }
+?>

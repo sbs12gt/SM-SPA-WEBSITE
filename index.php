@@ -12,11 +12,11 @@
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php include_once('includes/header.php'); ?>
-
     <section id="Main_Carousel">
         <div id="demo" class="carousel slide carrusel_principal" data-ride="carousel">
             <!-- Indicators -->
@@ -40,7 +40,7 @@
                                 Corrupti ut asperiores id nostrum.<br>
                                 <br>
                             </h5>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -105,40 +105,89 @@
             <!-- Imagen -->
             <img class="mb-3 img-fluid" style="border-radius: 30px;" src="assets/images/demo-formulario_instalacion-spa.jpg" alt="instalación del spa">
             <!-- Formulario -->
-            <div class="card bg-light">
+            <div class="card" style="background-color: #005256;">
                 <div class="card-body">
-                    <form  method="post">
+                    <form id="contactForm" method="post" class="needs-validation" novalidate>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nombres" name="nombres">
-                            <small class="text-danger font-weight-bold"></small>
+                            <label for="Nombres" style="font-family: 'DM Serif Display';color:#dedede;">Nombres:</label>
+                            <input type="text" class="form-control" placeholder="Nombres" name="nombres" required>
+                            <div class="valid-feedback">
+                                ¡Campo completado con Éxito!
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
+                            <label for="Apellidos" style="font-family: 'DM Serif Display';color:#dedede;">Apellidos:</label>
+                            <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" required>
+                            <div class="valid-feedback">
+                                ¡Campo completado con Éxito!
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Correo" name="correo">
+                            <label for="Correo" style="font-family: 'DM Serif Display';color:#dedede;">Correo:</label>
+                            <input type="email" class="form-control" placeholder="Correo" name="correo" required>
+                            <div class="valid-feedback">
+                                ¡Campo completado con Éxito!
+                            </div>
+                            <div class="invalid-feedback">
+                                Debe proporcionar un correo electrónico válido.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Celular" name="celular">
+                            <label for="Celular" style="font-family: 'DM Serif Display';color:#dedede;">Celular:</label>
+                            <input type="tel" class="form-control" placeholder="Celular" name="celular" pattern="[0-9]{9}" maxlength="9" required>
+                            <div class="valid-feedback">
+                                ¡Campo completado con Éxito!
+                            </div>
+                            <div class="invalid-feedback">
+                                Debe proporcionar un número de celular válido de 9 dígitos.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Asunto" name="asunto">
+                            <label for="Asunto" style="font-family: 'DM Serif Display';color:#dedede;">Asunto:</label>
+                            <input type="text" class="form-control" placeholder="Asunto" name="asunto" required>
+                            <div class="valid-feedback">
+                                ¡Campo completado con Éxito!
+                            </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control area-de-texto" placeholder="Mensaje" name="mensaje"></textarea>
+                            <label for="Mensaje" style="font-family: 'DM Serif Display';color:#dedede;">Mensaje:</label>
+                            <textarea class="form-control area-de-texto" placeholder="Mensaje" name="mensaje" required></textarea>
+                            <div class="valid-feedback">
+                                ¡Campo completado con Éxito!
+                            </div>
+                            <div class="invalid-feedback">
+                                Debe proporcionar un mensaje.
+                            </div>
                         </div>
-                        <input type="submit" class="btn btn-success" name="enviar">
-
+                        <button id="enviarPreguntaBtn" type="submit" class="btn btnPregunta" name="enviar"><i class="fa fa-envelope-o"></i> Enviar Mensaje</button>
                     </form>
+
                 </div>
+                <?php include('includes/correo.php'); ?>
             </div>
-            <?php include('includes/correo.php')?>
         </div>
     </section>
 
+    <style>
+        .btnPregunta {
+            font-family: 'DM Serif Display';
+            background-color: #005256;
+            border: 2px solid #dedede;
+            color: #dedede;
+        }
+
+        .btnPregunta:hover{
+            background-color: #dedede;
+            border: 2px solid #005256;
+            color: #005256;
+        }
+    </style>
+
+
+
     <?php include_once('includes/whatsapp.php'); ?>
     <?php include_once('includes/footer.php'); ?>
-    
+
 </body>
 
 </html>

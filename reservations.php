@@ -28,13 +28,11 @@
         });
     </script>
     <section id="Countdown_section" class="mt-1">
-
         <div class="container">
             <div class="countdown">
                 <h5 id="x_minutes_countdown"><i class="fa fa-clock-o"></i></h5>
             </div>
         </div>
-
     </section>
     <!--ELECCION DEL SERVICIO---->
     <section id="Services_section" class="mt-5 mb-5" style="position: relative;">
@@ -127,12 +125,11 @@
             </div>
 
             <div class="card bg-light text-dark mt-3">
-                <h3 class="text-center mt-3">Datos del Cliente:</h3>
-
+                <h3 class="text-center mt-3"> Datos del Cliente:</h3>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 border-right">
-                            <h5 id="servicio_Client_Information_Titulo">Ejemplo Servicio</h5>
+                            <h5 id="servicio_Client_Information_Titulo"> Ejemplo Servicio</h5>
                             <p id="servicio_Client_Information_DuracionPrecio">
                                 <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
                                 <i class="fa fa-money"></i> Precio: S/60
