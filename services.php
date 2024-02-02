@@ -53,7 +53,6 @@
         <div id="Dynamic_Service_Catalog" class="container pb-5">
         </div>
     </section>
-
     <?php include_once('includes/footer.php'); ?>
 </body>
 
