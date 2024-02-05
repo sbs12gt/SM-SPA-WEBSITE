@@ -4,6 +4,14 @@ var URL_BASE = "http://localhost:8080";
 var selectedDate = null;
 var selectedTime = null;
 
+var nombres = null;
+var apellidos = null;
+var celular = null;
+var correo = null;
+var PaymentAmount = null;
+var servicio = null;
+var DollarValue = 3.8;
+
 $(document).ready(function () {
   llenarComboServicios();
 
@@ -64,10 +72,10 @@ $(document).ready(function () {
   //SE PASA A LA SECCION DE METODO DE PAGO
   $("#BtnContinuar3").on("click", function () {
     if (validateClientInformationForm()) {
-      var nombres = $("#validationNombres").val();
-      var apellidos = $("#validationApellidos").val();
-      var celular = $("#validationCelular").val();
-      var correo = $("#validationCorreo").val();
+      nombres = $("#validationNombres").val();
+      apellidos = $("#validationApellidos").val();
+      celular = $("#validationCelular").val();
+      correo = $("#validationCorreo").val();
       updatePaymentSection(nombres, apellidos, celular, correo);
 
       $("#Client_Information_section").fadeOut(1000, function () {
@@ -181,6 +189,127 @@ $(document).ready(function () {
     var days = ["DOM", "LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB"];
     return days[dayIndex];
   }
+
+  paypal
+    .Buttons({
+      style: {
+        shape: "pill",
+        label: "pay",
+      },
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [
+            {
+              amount: {
+                value: (PaymentAmount / DollarValue).toFixed(2),
+              },
+            },
+          ],
+        });
+      },
+      onApprove: function (data, actions) {
+        actions.order.capture().then(function (detalle_pago) {
+          console.log(detalle_pago);
+          Swal.fire({
+            icon: "success",
+            title: "Reserva Completada",
+            text: "¡Su Reserva ha sido completada con éxito!",
+          });
+          PagoExitoso();
+        });
+      },
+      onCancel: function (data) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "El Pago no ha sido Completado.",
+        });
+      },
+    })
+    .render("#paypal-button-container");
+
+  function PagoExitoso() {
+    // Realiza la petición AJAX para enviar los datos al backend
+    $.ajax({
+      type: "POST",
+      url: "send_reservation_details.php",
+      data: {
+        nombres: nombres,
+        apellidos: apellidos,
+        celular: celular,
+        correo: correo,
+        servicio: servicio,
+        selectedDate: selectedDate,
+        selectedTime: selectedTime,
+        PaymentAmount: PaymentAmount,
+      },
+      success: function (response) {
+        console.log("Pago exitoso");
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  }
+
+  /*VALIDAR BOTON DE PAGO
+  $("#BtnPagar").click(function () {
+    if ($("input[name=MetodoPaypal]").is(":checked")) {
+      realizarFuncionalidadMetodoPaypal();
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Debe seleccionar un método de Pago Disponible.",
+      });
+    }
+  });
+
+
+  function realizarFuncionalidadMetodoPaypal() {
+    var createOrder = function (data, actions) {
+      return actions.order.create({
+        purchase_units: [
+          {
+            amount: {
+              value: 100,
+            },
+          },
+        ],
+      });
+    };
+
+
+    var onApprove = function (data, actions) {
+      return actions.order.capture().then(function (detalle_pago) {
+        console.log(detalle_pago);
+        window.location.href = "pago_completado.html";
+      });
+    };
+
+    // Ejecutar en caso de cancelación
+    var onCancel = function (data) {
+      alert("El pago no ha sido completado");
+    };
+
+    var buttons = {
+      createOrder: createOrder,
+      onApprove: onApprove,
+      onCancel: onCancel,
+    };
+
+    createOrder().then(function (details) {
+      console.log(details);
+
+      onApprove({ orderID: details.id }, buttons);
+    });
+  }/*/
+  //else if ($("#metodoPago2").is(":checked")) {
+  // Si el método de pago 2 está seleccionado, realiza la funcionalidad correspondiente
+  //realizarFuncionalidadMetodoPago2();
+  //
+  //
+  //
 });
 
 //CLICKS EN CLASE CUSTOM-DAY
@@ -264,7 +393,7 @@ function llenarComboServicios() {
   var cmbServicios = $("#cmbServicios");
 
   $.ajax({
-    url: URL_BASE+"/spa/servicios/listarServiciosDisponibles",
+    url: URL_BASE + "/spa/servicios/listarServiciosDisponibles",
     method: "GET",
     dataType: "json",
     success: function (data) {
@@ -293,10 +422,11 @@ function llenarComboServicios() {
 //OBTENER LA INFORMACION DEL SERVICIO SELECCIONADO
 function obtenerDetallesServicio(servicioId) {
   $.ajax({
-    url: URL_BASE+"/spa/servicios/buscar/" + servicioId,
+    url: URL_BASE + "/spa/servicios/buscar/" + servicioId,
     method: "GET",
     dataType: "json",
     success: function (detallesServicio) {
+      servicio = detallesServicio.nombre;
       // INFORMACION DETALLADA DE SERVICIO ELEGIDO
       $("#servicioImagen").attr("src", detallesServicio.url_imagen);
       $("#servicioTitulo").text(detallesServicio.nombre);
@@ -339,6 +469,8 @@ function obtenerDetallesServicio(servicioId) {
           '<i class="fa fa-money"></i> Precio: S/' +
           detallesServicio.precio
       );
+
+      PaymentAmount = detallesServicio.precio;
     },
     error: function (error) {
       console.error("Error al obtener detalles del servicio REST:", error);

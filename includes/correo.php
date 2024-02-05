@@ -43,8 +43,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['enviar'])) {
             $mail->Subject = 'Contacto - ' . $asunto;
             $mail->Body = "Nombres: $nombres \r\nApellidos: $apellidos \r\nCorreo: $correo \r\nCelular: $celular \r\nMensaje: $mensaje";
 
+            /*/// Contenido HTML del correo
+            ob_start();
+            include 'template_reservation_email.php';
+            $htmlContent = ob_get_clean();
+
+            $mail->isHTML(true);
+            $mail->Body = $htmlContent;
+
+            //SE ENVÍA EL CORREO 
+            $mail->send();*/
+            
             //SE ENVIA EL CORREO 
             $mail->send();
+
+            
 
             echo "
                 <script>

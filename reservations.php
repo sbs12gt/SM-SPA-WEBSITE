@@ -18,6 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- BOTON DE PAYPAL -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AQiUWtFDQBgykiCDNs1zZGFxCmUYKRqeexPvpYOhG7hYCnKBbYdBQMUqPscXw1YEUZoAFjOo7gHmd5aZ&currency=USD"></script>
     <?php include_once('includes/header.php'); ?>
     <script>
         Swal.fire({
@@ -203,32 +205,41 @@
             </div>
 
             <div class="card bg-light text-dark mt-3">
-                <h3 class="text-center mt-3">Elección Método Pago:</h3>
-
+                <h3 class="text-center mt-3"> Método Pago:</h3>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 border-right">
-                            <h5 id="servicio_Payment_Titulo">Ejemplo Servicio</h5>
-                            <p id="servicio_Payment_DuracionPrecio">
-                                <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
-                                <i class="fa fa-money"></i> Precio: S/60
-                            </p>
-                            <h5>Datos Reserva:</h5>
-                            <p id="Payment_Reservation_Datos">
-                                <i class="fa fa-calendar"></i> Fecha y Hora: 2024/01/2024 - 03:50
-                            </p>
-                            <h5>Datos Cliente:</h5>
-                            <p id="Payment_Datos_Cliente">
-                                <i class="fa fa-user-circle"></i>
-                                <i class="fa fa-phone-square"></i>
-                                <i class="fa fa-envelope-o"></i>
-                            </p>
+                            <div class="card-body">
 
+                                <h5 id="servicio_Payment_Titulo">Ejemplo Servicio</h5>
+                                <p id="servicio_Payment_DuracionPrecio">
+                                    <i class="fa fa-clock-o"></i> Duración: 60 minutos &nbsp;&nbsp;
+                                    <i class="fa fa-money"></i> Precio: S/60
+                                </p>
+                                <h5>Datos Reserva:</h5>
+                                <p id="Payment_Reservation_Datos">
+                                    <i class="fa fa-calendar"></i> Fecha y Hora: 2024/01/2024 - 03:50
+                                </p>
+                                <h5>Datos Cliente:</h5>
+                                <p id="Payment_Datos_Cliente">
+                                    <i class="fa fa-user-circle"></i>
+                                    <i class="fa fa-phone-square"></i>
+                                    <i class="fa fa-envelope-o"></i>
+                                </p>
 
-
+                            </div>
                         </div>
                         <div class="col-md-6 border-left">
                             <div class="card-body">
+
+                                <div id="paypal-button-container"></div>
+
+                                <!--<div class="form-check">
+                                    <input class="form-check-input" type="radio" name="MetodoPaypal" id="MetodoPaypal" value="opcion1">
+                                    <label class="form-check-label" for="metodoPago1" style="font-weight: bold;">
+                                        <img src="assets/images/paypal.png" alt="Imagen Opción 1" width="50" height="50"> PayPal
+                                    </label>
+                                </div>!-->
 
                             </div>
                         </div>
@@ -236,7 +247,7 @@
                 </div>
                 <div class="card-footer text-right">
                     <button type="button" id="BtnAtras3" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Atrás</button>
-                    <button type="submit" id="BtnPagar" class="btn btn-success"><i class="fa fa-credit-card"></i> Pagar</button>
+                    <!--<button type="button" id="BtnPagar" class="btn btn-success"><i class="fa fa-credit-card"></i> Pagar</button>!-->
                 </div>
             </div>
         </div>
@@ -338,7 +349,7 @@
 
         #custom-time_picker {
             display: none;
-            
+
         }
 
 
