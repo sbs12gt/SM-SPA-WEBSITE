@@ -23,7 +23,7 @@
     <section id="Services_Carousel">
         <div class="container pt-4 pb-5">
             <h1 class="text-center tiny-window mb-4" style="font-family: 'DM Serif Display';color:#005256;"><i class="fa fa-star"></i> Nuestros Servicios Destacados:</h1>
-            <div id="demo" class="carousel slide" data-ride="carousel">
+            <div id="demo" class="carousel slide carrusel_principal" data-ride="carousel">
                 <!-- Indicators -->
                 <ul class="carousel-indicators">
                     <li data-target="#demo" data-slide-to="0" class="active"></li>

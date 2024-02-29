@@ -8,7 +8,7 @@ function cargarPromociones() {
   var promocionesContainer = $(".promocionesContainer");
 
   $.ajax({
-    url: URL_BASE + "/spa/promociones/listar",
+    url: URL_BASE + "/spa/promociones/listarPromocionesDisponibles",
     method: "GET",
     dataType: "json",
     success: function (promociones) {

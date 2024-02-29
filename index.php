@@ -30,22 +30,20 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active mensaje-a-la-derecha">
-                    <img src="assets/images/demo-carrusel_marco-floral.png" alt="marco floral" class="img-fluid">
+                    <img src="https://media.discordapp.net/attachments/1209921567627411577/1210016710816571452/iu.png?ex=65e906e0&is=65d691e0&hm=6ec57c8b47d667cefd9409b04ae5260bb58666ded634f0c93e3a00d9cf1fa19a&=&format=webp&quality=lossless" alt="marco floral" class="img-fluid">
                     <div>
                         <div class="contenedor"></div>
                         <div class="contenido">
-                            <h3>Masaje relajante<br></h3>
+                            <h3>¡Aprovecha ya!<br></h3>
                             <h1>Servicios de oferta</h1>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, laudantium tenetur. Qui
-                                architecto minima facere, non laudantium nemo nam neque asperiores dolorem eius
-                                obcaecati velit!
-                                Corrupti ut asperiores id nostrum.<br>
+                            <h5>En nuestro spa encontrarás un montón de ofertas increíbles.<br>
                                 <br>
                             </h5>
-
+                            <a class="btn btn-success"  href="promotions.php">Ya!</a>
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="carousel-item sin-mensaje">
                     <img src="assets/images/demo-carrusel_masaje_naranja.jpeg" alt="masaje naranja" class="img-fluid">
                     <div>
@@ -63,20 +61,18 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="carousel-item mensaje-a-la-izquierda">
-                    <img src="assets/images/demo-carrusel_productos-cosmeticos.jpeg" alt="productos cosméticos" class="img-fluid">
+                    <img src="https://media.discordapp.net/attachments/1209921567627411577/1210016575822757888/iu.png?ex=65e906c0&is=65d691c0&hm=fb56001ce88e89d77e2e89cd5c90efbb0dfca0c50f5442e49d26c782ecfb0012&=&format=webp&quality=lossless" alt="productos cosméticos" class="img-fluid">
                     <div>
                         <div class="contenedor"></div>
                         <div class="contenido">
-                            <h3>Masaje relajante<br></h3>
-                            <h1>Servicios de oferta</h1>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, laudantium tenetur. Qui
-                                architecto minima facere, non laudantium nemo nam neque asperiores dolorem eius
-                                obcaecati velit!
-                                Corrupti ut asperiores id nostrum.<br>
+                            <h3>Con los mejores expertos<br></h3>
+                            <h1>Nuestros servicios disponibles</h1>
+                            <h5>En nuestro spa puedes encontrar a los mejores expertos y las mejores instalaciones, para que disfrutes tu estadía con la mayor confianza.<br>
                                 <br>
                             </h5>
-                            <button class="btn btn-success">Ya!</button>
+                            <a class="btn btn-success"  href="services.php">Ya!</a>
                         </div>
                     </div>
                 </div>

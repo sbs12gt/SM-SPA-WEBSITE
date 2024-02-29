@@ -214,6 +214,10 @@ $(document).ready(function () {
             icon: "success",
             title: "Reserva Completada",
             text: "¡Su Reserva ha sido completada con éxito!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = "http://localhost/php/pagina_web/index.php";
+            }
           });
           PagoExitoso();
         });
