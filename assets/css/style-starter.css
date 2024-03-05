@@ -272,8 +272,8 @@
 }
 
 .carrusel_principal img {
-    max-height: 700px !important;
-    min-height: 500px !important;
+    max-height: 80vh !important;
+    min-height: 450px !important;
     width: 100% !important;
 }
 
@@ -340,6 +340,11 @@
 
 .ubicacion iframe {
     max-width: 100%;
+}
+
+.formulario-contacto small {
+    background-color: #d01a1a;
+    color: #dedede;
 }
 
 .carrusel-personal {

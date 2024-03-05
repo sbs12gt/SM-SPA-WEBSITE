@@ -13,40 +13,41 @@ function cargarPromociones() {
     dataType: "json",
     success: function (promociones) {
       promocionesContainer.empty();
-
-      for (let i = 0; i < promociones.length; i += 2) {
-        var container = $('<div class="container"></div>'); // Agrega el contenedor
-        var row = $('<div class="row py-3"></div>');
-
-        for (let j = i; j < i + 2 && j < promociones.length; j++) {
-          var col = $('<div class="col-md mt-4"></div>');
-          var card = $('<div class="card"></div>');
-
+      var container = $('<div class="container"></div>');
+      var row = $('<div class="row"></div>');
+      var col_left = $('<div class="col-md-6"></div>');
+      var col_right = $('<div class="col-md-6"></div>');
+      for (let i = 0; i < promociones.length; i ++) {
+          var card = $('<div class="card mt-4"></div>');
           var img = $(
             '<img class="card-img-top img-fluid" alt="' +
-              promociones[j].titulo +
+              promociones[i].titulo +
               '">'
           );
-          img.attr("src", promociones[j].url_imagen);
-
+          img.attr("src", promociones[i].url_imagen);
           var link = $(
             '<a class="stretched-link" data-toggle="modal" data-target="#myModal' +
-              j +
+              i +
               '"></a>'
           );
 
           card.append(img);
           card.append(link);
-          col.append(card);
 
-          row.append(col);
+          if (i%2==0) {
+            col_left.append(card);
+          } else {
+            col_right.append(card);
+          }
 
-          agregarModal(promociones[j], j);
-        }
+          agregarModal(promociones[i], i);
 
-        container.append(row); // Agrega la fila al contenedor
-        promocionesContainer.append(container); // Agrega el contenedor al contenedor de promociones
+         // Agrega el contenedor al contenedor de promociones
       }
+      row.append(col_left);
+      row.append(col_right);
+      container.append(row);
+      promocionesContainer.append(container);
     },
     error: function (xhr, status, error) {
       console.error("Error en la solicitud: ", status, error);

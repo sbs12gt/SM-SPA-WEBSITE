@@ -31,7 +31,7 @@ function listarEmpleados() {
                         <div class="carousel-caption" style="border-radius: 30px;background-color:#005256;color:#dedede;">
                             <h4 class="tiny-window-caption" style="font-family: 'DM Serif Display';">${
                               empleado.nombres + " " + empleado.apellidos
-                            }</h4>
+                            }<br>${empleado.descripcion}</h4>
                         </div>
                     </div>
                 `;

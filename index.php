@@ -18,6 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/index.js"></script>
+
     <?php include_once('includes/header.php'); ?>
     <section id="Main_Carousel">
         <div id="demo" class="carousel slide carrusel_principal" data-ride="carousel">
@@ -25,12 +27,12 @@
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
                 <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
+                <!--<li data-target="#demo" data-slide-to="2"></li>-->
             </ul>
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active mensaje-a-la-derecha">
-                    <img src="https://media.discordapp.net/attachments/1209921567627411577/1210016710816571452/iu.png?ex=65e906e0&is=65d691e0&hm=6ec57c8b47d667cefd9409b04ae5260bb58666ded634f0c93e3a00d9cf1fa19a&=&format=webp&quality=lossless" alt="marco floral" class="img-fluid">
+                    <img src="assets/images/demo-carrusel_senorita_toallas.jpg" alt="marco floral" class="img-fluid">
                     <div>
                         <div class="contenedor"></div>
                         <div class="contenido">
@@ -63,7 +65,7 @@
                 </div>
                 -->
                 <div class="carousel-item mensaje-a-la-izquierda">
-                    <img src="https://media.discordapp.net/attachments/1209921567627411577/1210016575822757888/iu.png?ex=65e906c0&is=65d691c0&hm=fb56001ce88e89d77e2e89cd5c90efbb0dfca0c50f5442e49d26c782ecfb0012&=&format=webp&quality=lossless" alt="productos cosméticos" class="img-fluid">
+                    <img src="assets/images/demo-carrusel_servicio_masajes.jpg" alt="productos cosméticos" class="img-fluid">
                     <div>
                         <div class="contenedor"></div>
                         <div class="contenido">
@@ -97,7 +99,7 @@
     </section>
 
     <section id="Contact_Form">
-        <div class="container pt-5 pb-5">
+        <div class="container pt-5 pb-5 formulario-contacto">
             <!-- Título -->
             <h1 class="text-center mb-3 tiny-window" style="font-family: 'DM Serif Display';color:#005256;"><i class="fa fa-wpforms"></i> Contáctenos: </h1>
             <!-- Imagen -->
@@ -106,62 +108,45 @@
             <div class="card" style="background-color: #005256;">
                 <div class="card-body">
                     <form id="contactForm" method="post" class="needs-validation" novalidate>
-                        <div class="form-group">
+                        <div class="form-group f-nombres">
                             <label for="Nombres" style="font-family: 'DM Serif Display';color:#dedede;">Nombres:</label>
                             <input type="text" class="form-control" placeholder="Nombres" name="nombres" required>
-                            <div class="valid-feedback">
-                                ¡Campo completado con Éxito!
-                            </div>
+                            <small></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group f-apellidos">
                             <label for="Apellidos" style="font-family: 'DM Serif Display';color:#dedede;">Apellidos:</label>
                             <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" required>
-                            <div class="valid-feedback">
-                                ¡Campo completado con Éxito!
-                            </div>
+                            <small></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group f-correo">
                             <label for="Correo" style="font-family: 'DM Serif Display';color:#dedede;">Correo:</label>
                             <input type="email" class="form-control" placeholder="Correo" name="correo" required>
                             <div class="valid-feedback">
                                 ¡Campo completado con Éxito!
                             </div>
-                            <div class="invalid-feedback">
-                                Debe proporcionar un correo electrónico válido.
-                            </div>
+                            <small></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group f-celular">
                             <label for="Celular" style="font-family: 'DM Serif Display';color:#dedede;">Celular:</label>
-                            <input type="tel" class="form-control" placeholder="Celular" name="celular" pattern="[0-9]{9}" maxlength="9" required>
-                            <div class="valid-feedback">
-                                ¡Campo completado con Éxito!
-                            </div>
-                            <div class="invalid-feedback">
-                                Debe proporcionar un número de celular válido de 9 dígitos.
-                            </div>
+                            <input type="tel" class="form-control" placeholder="Celular" name="celular" required>
+                            <small></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group f-asunto">
                             <label for="Asunto" style="font-family: 'DM Serif Display';color:#dedede;">Asunto:</label>
                             <input type="text" class="form-control" placeholder="Asunto" name="asunto" required>
-                            <div class="valid-feedback">
-                                ¡Campo completado con Éxito!
-                            </div>
+                            <small></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group f-mensaje">
                             <label for="Mensaje" style="font-family: 'DM Serif Display';color:#dedede;">Mensaje:</label>
                             <textarea class="form-control area-de-texto" placeholder="Mensaje" name="mensaje" required></textarea>
-                            <div class="valid-feedback">
-                                ¡Campo completado con Éxito!
-                            </div>
-                            <div class="invalid-feedback">
-                                Debe proporcionar un mensaje.
-                            </div>
+                            <small></small>
                         </div>
-                        <button id="enviarPreguntaBtn" type="submit" class="btn btnPregunta" name="enviar"><i class="fa fa-envelope-o"></i> Enviar Mensaje</button>
+                        <button id="enviarPreguntaBtn" type="button" class="btn btnPregunta" name="enviar" onclick="validarFormularioCorreo()"><i class="fa fa-envelope-o"></i> Enviar mensaje</button>
                     </form>
-
                 </div>
-                <?php include('includes/correo.php'); ?>
+                <!--
+                <php include('includes/correo.php'); ?>
+            -->
             </div>
         </div>
     </section>
@@ -181,11 +166,8 @@
         }
     </style>
 
-
-
     <?php include_once('includes/whatsapp.php'); ?>
     <?php include_once('includes/footer.php'); ?>
-
 </body>
 
 </html>
