@@ -1,4 +1,5 @@
 var URL_BASE = "http://localhost:8080";
+var URL_FOTO = "http://localhost:8080/spa/imagenes/"
 
 //VARIABLES PARA ALMACENAR FECHA Y HORA DE RESERVA
 var selectedDate = null;
@@ -9,8 +10,12 @@ var apellidos = null;
 var celular = null;
 var correo = null;
 var PaymentAmount = null;
+var precioServicio = null;
+var precioPromocion = null;
 var servicio = null;
+var idServicio = null;
 var DollarValue = 3.8;
+var promocionCode = null;
 
 $(document).ready(function () {
   llenarComboServicios();
@@ -26,6 +31,9 @@ $(document).ready(function () {
       obtenerDetallesServicio(IdServicioElegido);
       // BOTON CONTINUAR HABILITADO DESPUES DE SELECCION COMBO BOX
       BtnContinuar.prop("disabled", false);
+
+      resetTimeTable();
+      selectedTime = null;
     }
   });
 
@@ -53,6 +61,44 @@ $(document).ready(function () {
     } else {
       // SE PASA LA VALIDACION CORRECTAMENTE
       $("#Calendar_section").fadeOut(1000, function () {
+        $.ajax({
+          url: URL_BASE + "/spa/promociones/buscarPromocionAplicable?id_servicio=" + idServicio
+          + "&fechaReserva=" + selectedDate,
+          method: "GET",
+          dataType: "json",
+          success: function (data) {
+            if (data.tipo === "PORCENTUAL") {
+              promocionCode = "% " + data.descuento;
+              precioPromocion = PaymentAmount * data.descuento / 100;
+              PaymentAmount = PaymentAmount - precioPromocion;
+            } else if (data.tipo === "EFECTIVO") {
+              promocionCode = "S/ " + data.descuento;
+              precioPromocion = data.descuento;
+              PaymentAmount = PaymentAmount - precioPromocion;
+            }
+            $("#Client_Information_Promocion_Aplicable-p").html(
+            `<i class="fa fa-money"></i> Título: ${data.titulo}. Beneficio: ${promocionCode}`
+            );
+            $("#Payment_Promocion_Aplicable-p").html(
+            `<i class="fa fa-money"></i> Título: ${data.titulo}. Beneficio: ${promocionCode}`
+            );
+            $("#Payment_Precio_Total").html(
+            `Total: S/ ${PaymentAmount.toFixed(2)}`
+            );
+            $("#Client_Information_Promocion_Aplicable-div").css("display", "block");
+            $("#Payment_Promocion_Aplicable-div").css("display", "block");
+            $("#Payment_Precio_Total").css("display", "block");
+          },
+          error: function (error) {
+            $("#Client_Information_Promocion_Aplicable-div").css("display", "none");
+            $("#Payment_Promocion_Aplicable-div").css("display", "none");
+            $("#Payment_Precio_Total").css("display", "none");
+            promocionCode = null;
+            precioPromocion = null;
+            console.error("Error al obtener datos del servicio REST:", error);
+          },
+        });
+
         $("#Client_Information_section").fadeIn(1000, function () {
           $(this).css("display", "block");
         });
@@ -73,7 +119,19 @@ $(document).ready(function () {
   $("#BtnContinuar3").on("click", function () {
     if (validateClientInformationForm()) {
       nombres = $("#validationNombres").val();
+      var palabras = nombres.trim().split(/\s+/);
+      var nombresCapitalizados = palabras.map(function (palabra) {
+        return palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
+      });
+      nombres = nombresCapitalizados.join(' ');
+
       apellidos = $("#validationApellidos").val();
+      var palabras = apellidos.trim().split(/\s+/);
+      var apellidosCapitalizados = palabras.map(function (palabra) {
+        return palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
+      });
+      apellidos = apellidosCapitalizados.join(' ');
+
       celular = $("#validationCelular").val();
       correo = $("#validationCorreo").val();
       updatePaymentSection(nombres, apellidos, celular, correo);
@@ -210,6 +268,7 @@ $(document).ready(function () {
       onApprove: function (data, actions) {
         actions.order.capture().then(function (detalle_pago) {
           console.log(detalle_pago);
+          PagoExitoso();
           Swal.fire({
             icon: "success",
             title: "Reserva Completada",
@@ -219,7 +278,6 @@ $(document).ready(function () {
               window.location.href = "http://localhost/php/pagina_web/index.php";
             }
           });
-          PagoExitoso();
         });
       },
       onCancel: function (data) {
@@ -246,6 +304,9 @@ $(document).ready(function () {
         selectedDate: selectedDate,
         selectedTime: selectedTime,
         PaymentAmount: PaymentAmount,
+        precioPromocion: precioPromocion,
+        precioServicio: precioServicio,
+        promocionCode: promocionCode
       },
       success: function (response) {
         console.log("Pago exitoso");
@@ -390,6 +451,27 @@ $("#custom-time_picker").on("click", ".custom-time", function () {
   // Lógica adicional al hacer clic en un elemento con la clase "custom-time"
   selectedTime = $(this).text();
   console.log("Hora seleccionada:", selectedTime);
+
+  // Validar hora, y fecha, y servicio
+  $.ajax({
+    url: URL_BASE + "/spa/reservas/verificarReservaDisponible?id_servicio=" + idServicio
+    + "&fecha=" + selectedDate + "&hora=" + selectedTime,
+    method: "GET",
+    dataType: "text",
+    success: function (data) {
+      //SI GUSTAS, PUEDES PONERLE UN EVENTE DE ÉXITO
+    },
+    error: function (error) {
+      $(".custom-time").removeClass("selected-time");
+      selectedTime = null;
+      Swal.fire({
+        icon: "warning",
+        title: "Tenemos un problema.",
+        text: error.responseText,
+      });
+      console.error("Error al obtener datos del servicio REST:", error);
+    },
+  });
 });
 
 //LLENAR LOS COMBOS DE LOS SERVICIOS
@@ -430,9 +512,10 @@ function obtenerDetallesServicio(servicioId) {
     method: "GET",
     dataType: "json",
     success: function (detallesServicio) {
+      idServicio = detallesServicio.id_servicio;
       servicio = detallesServicio.nombre;
       // INFORMACION DETALLADA DE SERVICIO ELEGIDO
-      $("#servicioImagen").attr("src", detallesServicio.url_imagen);
+      $("#servicioImagen").attr("src", URL_FOTO + detallesServicio.url_imagen);
       $("#servicioTitulo").text(detallesServicio.nombre);
       $("#servicioDescripcion").text(detallesServicio.descripcion);
       $("#servicioDuracion").html(
@@ -474,7 +557,8 @@ function obtenerDetallesServicio(servicioId) {
           detallesServicio.precio
       );
 
-      PaymentAmount = detallesServicio.precio;
+      precioServicio = detallesServicio.precio
+      PaymentAmount = precioServicio;
     },
     error: function (error) {
       console.error("Error al obtener detalles del servicio REST:", error);
@@ -495,7 +579,7 @@ function validateClientInformationForm() {
 //ACTUALIZAR ESTADO BOTON CONTINUAR 3
 function updateBtnContinuar3State() {
   var isValid = validateClientInformationForm();
-  BtnContinuar3.prop("disabled", !isValid);
+  //BtnContinuar3.prop("disabled", !isValid);
 }
 
 function updatePaymentSection(nombres, apellidos, celular, correo) {

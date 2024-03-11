@@ -25,10 +25,9 @@
         Swal.fire({
             title: 'Reserva de Servicios en SM SPA',
             text: 'Tiene un tiempo límite de 5 minutos para reservar.',
-            timer: 1500,
-            showConfirmButton: false,
+            showConfirmButton: true,
             allowOutsideClick: false,
-            icon: 'success',
+            icon: 'info',
         });
     </script>
     <section id="Countdown_section" class="mt-1">
@@ -56,7 +55,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 border-right">
-                            <label for="cmbServicios">Selecciona un Servicio:</label>
+                            <label for="cmbServicios">Selecciona un servicio:</label>
                             <select id="cmbServicios" class="form-control">
                                 <option value="" disabled selected>Selecciona un servicio</option>
                             </select>
@@ -142,42 +141,58 @@
                             <p id="Client_Information_Reservation_Datos">
                                 <i class="fa fa-calendar"></i> Fecha y Hora: 2024/01/2024 - 03:50
                             </p>
+                            <div id="Client_Information_Promocion_Aplicable-div" style="display: none;">
+                               <h5>Promoción Aplicable:</h5>
+                                <p id="Client_Information_Promocion_Aplicable-p">
+                                    <i class="fa fa-money"></i> Título: Aló. Beneficio: 10%
+                                </p> 
+                            </div>
                         </div>
                         <div class="col-md-6 border-left">
                             <div class="card-body">
                                 <form class="needs-validation" novalidate>
                                     <div class="form-group">
                                         <label for="Nombres">Nombres</label>
-                                        <input type="text" class="form-control" id="validationNombres" placeholder="Nombres" required>
+                                        <input type="text" class="form-control" id="validationNombres" placeholder="Nombres"
+                                        minlength="2" maxlength="200" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]{2}[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]*$" required>
                                         <div class="valid-feedback">
                                             ¡Campo completado con Éxito!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Nombres no debe tener menos de dos caracteres, ni llevar números, símbolos o caracteres extraños.
                                         </div>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="Apellidos">Apellidos</label>
-                                        <input type="text" class="form-control" id="validationApellidos" placeholder="Apellidos" required>
+                                        <input type="text" class="form-control" id="validationApellidos" placeholder="Apellidos"
+                                        minlength="2" maxlength="200" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜÑ]{2}[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]*$" required>
                                         <div class="valid-feedback">
                                             ¡Campo completado con Éxito!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Apellidos no debe tener menos de dos caracteres, ni llevar números, símbolos o caracteres extraños.
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="Celular">Celular</label>
-                                        <input type="tel" class="form-control" id="validationCelular" placeholder="Celular" pattern="[0-9]{9}" maxlength="9" required>
+                                        <input type="tel" class="form-control" id="validationCelular" placeholder="Celular"
+                                        minlength="6" maxlength="50" pattern="^\+?\d{6,50}$" required>
                                         <div class="valid-feedback">
                                             ¡Campo completado con Éxito!
                                         </div>
                                         <div class="invalid-feedback">
-                                            Debe proporcionar un número de celular válido de 9 dígitos.
+                                            Número no debe tener menos de 6 dígitos. No se permiten letras, símbolos o espacios.
                                         </div>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="Correo">Correo</label>
-                                        <input type="email" class="form-control" id="validationCorreo" placeholder="Correo" required>
+                                        <input type="email" class="form-control" id="validationCorreo" placeholder="Correo"
+                                        maxlength="300" required>
                                         <div class="valid-feedback">
                                             ¡Campo completado con Éxito!
                                         </div>
                                         <div class="invalid-feedback">
-                                            Debe proporcionar un correo electrónico válido.
+                                            Correo no válido. No se permiten caracteres especiales o extraños.
                                         </div>
                                     </div>
                                 </form>
@@ -220,13 +235,19 @@
                                 <p id="Payment_Reservation_Datos">
                                     <i class="fa fa-calendar"></i> Fecha y Hora: 2024/01/2024 - 03:50
                                 </p>
+                                <div id="Payment_Promocion_Aplicable-div" style="display: none;">
+                                    <h5>Promoción Aplicable:</h5>
+                                    <p id="Payment_Promocion_Aplicable-p">
+                                        <i class="fa fa-money"></i> Título: Aló. Beneficio: 10%
+                                    </p> 
+                                </div>
                                 <h5>Datos Cliente:</h5>
                                 <p id="Payment_Datos_Cliente">
                                     <i class="fa fa-user-circle"></i>
                                     <i class="fa fa-phone-square"></i>
                                     <i class="fa fa-envelope-o"></i>
                                 </p>
-
+                                <h5 id="Payment_Precio_Total" style="display: none;">Total: S/ </h5>
                             </div>
                         </div>
                         <div class="col-md-6 border-left">
@@ -297,7 +318,7 @@
 
         .custom-day {
             display: inline-block;
-            width: 100px;
+            width: 110px;
             height: 100px;
             text-align: center;
             margin: 5px;

@@ -1,6 +1,10 @@
 var URL_BASE = "http://localhost:8080";
+var URL_FOTO = "http://localhost:8080/spa/imagenes/"
 
 $(document).ready(function () {
+  setTimeout(function() {
+    $("#spinner").fadeOut();
+  }, 1000);
   cargarPromociones();
 });
 
@@ -24,7 +28,7 @@ function cargarPromociones() {
               promociones[i].titulo +
               '">'
           );
-          img.attr("src", promociones[i].url_imagen);
+          img.attr("src", URL_FOTO + promociones[i].url_imagen);
           var link = $(
             '<a class="stretched-link" data-toggle="modal" data-target="#myModal' +
               i +
@@ -74,7 +78,7 @@ function agregarModal(promocion, index) {
   );
   var modalImg = $(
     '<img class="img-fluid" src="' +
-      promocion.url_imagen +
+      URL_FOTO + promocion.url_imagen +
       '" alt="' +
       promocion.titulo +
       '">'

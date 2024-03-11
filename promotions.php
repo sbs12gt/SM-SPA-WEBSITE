@@ -25,7 +25,15 @@
         <div class="pt-4">
             <h1 class="text-center tiny-window" style="font-family: 'DM Serif Display';color:#005256;"><i class="fa fa-gift"></i> Nuestras Promociones Vigentes:</h1>
         </div>
+        <div id="spinner" >
+            <div class="d-flex justify-content-center" style="height: 800px;">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
         <div class="promocionesContainer">
+            <!--
             <div class="container py-3">
                 <div class="row">
                     <div class="col-md mt-4">
@@ -66,7 +74,7 @@
                     </div>
                 </div>
             </div>
-
+            -->
         </div>
     </section>
 

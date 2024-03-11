@@ -1,4 +1,5 @@
 var URL_BASE = "http://localhost:8080";
+var URL_FOTO = "http://localhost:8080/spa/imagenes/"
 
 $(document).ready(function () {
   listarEmpleados();
@@ -25,7 +26,7 @@ function listarEmpleados() {
         // Agregar elementos del carrusel
         var carouselItem = `
                     <div class="carousel-item ${i === 0 ? "active" : ""}">
-                        <img src="${empleado.url_foto}" alt="${
+                        <img src="${URL_FOTO + empleado.url_foto}" alt="${
           empleado.nombres + " " + empleado.apellidos
         }" class="img-fluid">
                         <div class="carousel-caption" style="border-radius: 30px;background-color:#005256;color:#dedede;">

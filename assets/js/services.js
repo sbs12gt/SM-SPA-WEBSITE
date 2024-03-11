@@ -1,6 +1,10 @@
 var URL_BASE = "http://localhost:8080";
+var URL_FOTO = "http://localhost:8080/spa/imagenes/"
 
 $(document).ready(function () {
+  setTimeout(function() {
+    $("#spinner").fadeOut();
+  }, 1000);
   cargarServiciosPopulares();
   listarServicios();
 });
@@ -33,14 +37,14 @@ function listarServicios() {
         for (let j = i; j < i + tarjetasPorFila && j < data.length; j++) {
           var servicio = data[j];
           var card = `
-            <div class="col-sm-${
+            <div class="col-md-${
               12 / tarjetasPorFila
             }"> <!-- Calcula el ancho de la columna dinámicamente -->
                 <div class="card mt-3">
                     <img class="card-img-top img-fluid" src="${
-                      servicio.url_imagen
+                      URL_FOTO + servicio.url_imagen
                     }" alt="${servicio.nombre}" width="300" height="250">
-                    <div class="card-body">
+                    <div class="card-body" style="min-height: 150px;">
                         <h4 class="card-title" style="font-family: 'DM Serif Display';
                         src: url(../fonts/DMSerifDisplay-Regular.ttf);">${servicio.nombre}</h4>
                         <p class="card-text">${servicio.descripcion}</p>
@@ -89,7 +93,7 @@ function cargarServiciosPopulares() {
         // Agregar elementos del carrusel
         var carouselItem = `
           <div class="carousel-item ${i === 0 ? "active" : ""}">
-            <img src="${servicio.url_imagen}" alt="${
+            <img src="${URL_FOTO + servicio.url_imagen}" alt="${
           servicio.nombre
         }" class="img-fluid">
             <div class="carousel-caption" style="border-radius: 30px;background-color:#005256;color:#dedede;">

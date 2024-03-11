@@ -16,20 +16,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $selectedDate = $_POST["selectedDate"];
     $selectedTime = $_POST["selectedTime"];
     $PaymentAmount = $_POST["PaymentAmount"];
+    $precioPromocion = $_POST["precioPromocion"];
+    $precioServicio = $_POST["precioServicio"];
+    $promocionCode = $_POST["promocionCode"];
 
 
     $mail = new PHPMailer(true);
 
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp.office365.com';
+        $mail->Host = 'live.smtp.mailtrap.io';
         $mail->SMTPAuth = true;
-        $mail->Username = 'smspaperu@hotmail.com';
-        $mail->Password = 'Elmejorspadelmundo';
+        $mail->Username = 'api';
+        $mail->Password = '0356ba4913480068a618411e84edef95';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-        $mail->setFrom('smspaperu@hotmail.com', 'Sm Spa');
+        $mail->setFrom('mailtrap@demomailtrap.com', 'Sm Spa Contacto');
         $mail->addAddress($correo);
         $mail->Subject = 'Resumen - Reserva';
 
@@ -39,6 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $mail->isHTML(true);
         $mail->Body = $htmlContent;
+
+        $mail->CharSet = 'UTF-8';
+        $mail->addCustomHeader('Content-Type: text/html; charset=UTF-8');
+
 
         //SE ENVÍA EL CORREO 
         $mail->send();
