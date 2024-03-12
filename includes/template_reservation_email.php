@@ -82,12 +82,14 @@
                         <td>Precio servicio:</td>
                         <td><?php echo $precioServicio; ?></td>
                     </tr>
-                    <?php if ($promocionCode !== null || $precioPromocion !== null) : ?>
-                        <tr>
-                            <td>Beneficio promoción:<br>(<?php echo $promocionCode; ?>)</td>
-                            <td><?php echo $precioPromocion; ?></td>
-                        </tr>
-                    <?php endif; ?>
+                    <?php
+                        if ($promocionCode === null || $precioPromocion === null || $promocionCode === '' || $precioPromocion === '') {
+                            $rowContent = '';
+                        } else {
+                            $rowContent = '<tr><td>Beneficio promoción:<br>(' . $promocionCode . ')</td><td>' . $precioPromocion . '</td></tr>';
+                        }
+                    ?>
+                    <?php echo $rowContent; ?>
                     <tr>
                         <td>Precio TOTAL:</td>
                         <td><?php echo $PaymentAmount; ?></td>

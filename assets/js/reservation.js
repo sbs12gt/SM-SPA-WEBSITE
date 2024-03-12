@@ -14,6 +14,7 @@ var precioServicio = null;
 var precioPromocion = null;
 var servicio = null;
 var idServicio = null;
+var idPromocion = null;
 var DollarValue = 3.8;
 var promocionCode = null;
 
@@ -67,6 +68,7 @@ $(document).ready(function () {
           method: "GET",
           dataType: "json",
           success: function (data) {
+            idPromocion = data.id_promocion;
             if (data.tipo === "PORCENTUAL") {
               promocionCode = "% " + data.descuento;
               precioPromocion = PaymentAmount * data.descuento / 100;
@@ -292,6 +294,8 @@ $(document).ready(function () {
 
   function PagoExitoso() {
     // Realiza la petición AJAX para enviar los datos al backend
+    console.log(promocionCode);
+    console.log(precioPromocion);
     $.ajax({
       type: "POST",
       url: "send_reservation_details.php",
@@ -313,6 +317,49 @@ $(document).ready(function () {
       },
       error: function (error) {
         console.log(error);
+      },
+    });
+
+    if (idPromocion == null) {
+      var data = {
+        apellidos_cliente: apellidos,
+        correo_cliente: correo,
+        fecha: selectedDate,
+        hora: selectedTime,
+        nombres_cliente: nombres,
+        telefono_cliente: celular,
+        id_promocion: null,
+        id_servicio: {
+          id_servicio: idServicio,
+        },
+      };
+    } else {
+      var data = {
+        apellidos_cliente: apellidos,
+        correo_cliente: correo,
+        fecha: selectedDate,
+        hora: selectedTime,
+        nombres_cliente: nombres,
+        telefono_cliente: celular,
+        id_promocion: {
+          id_promocion: idPromocion,
+        },
+        id_servicio: {
+          id_servicio: idServicio,
+        },
+      };
+    }
+
+    $.ajax({
+      url: URL_BASE + "/spa/reservas/registrar",
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(data),
+      success: function (response) {
+        console.log("Registro exitoso");
+      },
+      error: function (error) {
+        console.error("Error en el registro:", error);
       },
     });
   }
